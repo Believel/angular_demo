@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+  <meta charset="UTF-8">
+  <title>图片裁剪ngImgCrop</title>
+  <link rel="stylesheet" href="../bower_components/ng-img-crop/source/scss/ng-img-crop.scss">
+  <style>
+      .cropArea {
+          background: #E4E4E4;
+          overflow: hidden;
+          width: 500px;
+          height: 350px;
+      }
+  </style>
+</head>
+<body ng-controller="ctrl">
+  <div>Select an image file:<input type="file" id="fileInput"></div>
+  <div class="cropArea">
+  <!-- image:source image -->
+  <!-- result-image: result image -->
+    <img-crop image="myImage" result-image="mycroppedImage"></img-crop>
+  </div>
+  <div>
+    Croppped Image:
+  </div>
+  <div>
+    <img ng-src="{{mycroppedImage}}" alt="">
+  </div>
+  <script src="../bower_components/angular/angular.js"></script>
+  <script src="../bower_components/ng-img-crop/source/js/init.js"></script>
+  <script src="../bower_components/ng-img-crop/source/js/classes/crop-host.js"></script>
+  <script src="../bower_components/ng-img-crop/source/js/classes/crop-pubsub.js"></script>
+  <script src="../bower_components/ng-img-crop/source/js/classes/crop-area.js"></script>
+  <script src="../bower_components/ng-img-crop/source/js/classes/crop-area-circle.js"></script>
+  <script src="../bower_components/ng-img-crop/source/js/classes/crop-canvas.js"></script>
+  <script src="../bower_components/ng-img-crop/source/js/classes/crop-area-square.js"></script>
+  <script src="../bower_components/ng-img-crop/source/js/classes/crop-exif.js"></script>
+  <script src="../bower_components/ng-img-crop/source/js/ng-img-crop.js"></script>
+  <script>
+      var myApp = angular.module('myApp',['ngImgCrop']);
+      myApp.controller('ctrl', function($scope){
+        $scope.myImage = '';
+        $scope.mycroppedImage = '';
+        var handleFileSelect = function(evt){
+            var file = evt.currentTarget.files[0];
+            var reader = new FileReader();
+            reader.onload = function(evt){
+                $scope.$apply(function($scope){
+                    $scope.myImage = evt.target.result;
+                });
+            };
+            reader.readAsDataURL(file);
+        };
+        angular.element(document.querySelector('#fileInput')).on('change', handleFileSelect);
+      })
+
+
+  </script>
+</body>
+</html>

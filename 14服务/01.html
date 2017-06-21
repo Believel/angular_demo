@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>服务</title>
+</head>
+<body>
+  
+  <script src="../node_modules/angular/angular.js"></script>  
+  <script>
+  // 服务是一个单例对象，在每个应用中只能被实例化一次，并且是延迟加载的
+      var app = angular.module('app',[]);
+     
+   /*   app.factory('userService', userService);
+      function userService($http){
+       var baseUrl = '',
+          userName;
+        var runUserRequest = function(path){
+            return $http({
+                method : 'JSONP',
+                url : baseUrl + '/users/'+userName + '?callback=JSON_CALLBACK'
+            })
+        }
+
+      }*/
+
+      app.provider('DateService', DateService);
+      function DateService(){
+            var baseUrl = 'localhost:8080';
+            //私有状态
+           var setUrl = function(url){
+                baseUrl = url;
+           }
+            this.$get  = function(){
+                return {
+                  baseUrl :baseUrl
+                }
+            }
+           }
+       app.config(function(DateServiceProvider){
+        console.log(DateService);
+          DateService.baseUrl = 'zz';
+          console.log(DateService.baseUrl)
+      })
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body ng-app="app">
+    <div ng-controller="demo">
+        {{rootValue}}
+    </div>
+  
+  <script src="../node_modules/angular/angular.js"></script>
+  <script>
+      var app = angular.module('app',[]);
+      // 根作用域
+      app.run(['$rootScope', function($rootScope){
+        $rootScope.rootValue = 'root'
+      }])
+      app.controller('demo', ['$scope', '$rootScope', function($scope, $rootScope){
+
+
+      }])
+  </script>
+</body>
+</html>

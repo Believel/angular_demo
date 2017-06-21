@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>路由模式——路由事件</title>
+</head>
+<body>
+    <!--标签定义形式-->
+    <a href="#!/home">HOME</a>
+    <a href="#!/about">about</a>
+    <div ng-view>
+        
+    </div>
+  <script src="../node_modules/angular/angular.js"></script>  
+  <script src="../node_modules/angular-route/angular-route.js"></script>
+  <script>
+      angular.module('app',['ngRoute'])
+            .run(['$rootScope','$location' ,function($rootScope, $location){
+                //next : 将要跳转的下一个url
+                // current : 路由变化前的url
+                $rootScope.$on('$routeChangeStart', function(evt, next, current){
+                    console.log(1)
+                    console.log(next);
+                    console.log(current);
+
+               })
+               //next:用户当前所处的路由
+               // previous : 上一个路由（如果当前是第一个路由，则为undefined）
+               $rootScope.$on('$routeChangeSuceess', function(evt, next, previous){
+                   console.log(2)
+                    console.log(next);
+                    console.log(previous);
+
+               })
+               //rejection: 被拒绝的错误信息
+                $rootScope.$on('$routeChangeError', function(current, previous, rejection){
+                    console.log(3)
+                    console.log(current);
+                    console.log(previous);
+                    console.log(rejection);
+
+               })
+
+            }])
+             .config(['$locationProvider','$routeProvider', function($locationProvider, $routeProvider){
+                 $locationProvider.html5Mode(false);//angularJs默认使用标签模式
+                 $locationProvider.hashPrefix('!');//标签模式下标签默认的前缀‘!’
+                 $routeProvider.when('/home',{
+                     template : '<h1>我是home页面</h1>'
+                 })
+                 $routeProvider.when('/about', {
+                     template :'<h1>我是about页面</h1>'
+                 })
+
+
+             }])
+
+  </script>
+</body>
+</html>

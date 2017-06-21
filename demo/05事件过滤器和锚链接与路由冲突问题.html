@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body ng-app="app" >
+<div ng-controller="myctrl">{{time | timefilter : 'MM-dd'}}</div>
+<div ng-controller="myDemo">
+    <a href="" ng-click="demo();">链接</a>
+   
+    <br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br>
+     <div id="demo">
+      哈哈哈哈
+    </div>
+    <p>This is the partial for view 1.</p>
+    <br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br>
+    <p>This is the partial for view 1.</p>
+</div>
+  <script src="../bower_components/angular/angular.js"></script>
+  <script>
+      angular.module('app',[])
+            .controller('myctrl', function($scope){
+                $scope.time = '2014-07-10 10:22:12';
+            })
+            .filter('timefilter', function($filter){
+                return function(input, message){
+                    console.log(input);
+                    console.log(message);
+                    return $filter('date')(new Date(input),message);
+
+                }
+
+            })
+            .controller('myDemo', function($scope, $anchorScroll, $location){
+                $anchorScroll.yOffset = 50;   
+                $scope.demo = function(){
+                    console.log(1);
+                    $location.hash('dmeo');
+                    $anchorScroll();//移动到锚点
+                }
+              })
+  </script>
+</body>
+</html>

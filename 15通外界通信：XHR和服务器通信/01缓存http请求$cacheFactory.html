@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title> </title>
+</head>
+<body ng-app="app">
+  <div ng-controller="demoCtrl">
+    
+  </div>
+  <script src="../node_modules/angular/angular.js"></script>
+  <script>
+      var app = angular.module('app', []);
+      //当你刷新浏览器，初始化整个应用程序的时候，之前的缓存数据都会丢失
+      app.config(function($httpProvider, $cacheFactory){
+        //设置一个默认的缓存
+        $httpProvider.defaults.cache = $cacheFactory('lru', {
+          capacity : 20
+        });//最新的20个请求会被缓存，第21个请求会导致LRU从缓存中将时间比较老的请求移除掉
+
+      })
+      app.controller('demoCtrl',['$scope','$http','$cacheFactory' ,function($scope, $http, $cacheFactory){
+        $http.get('https://api.douban.com/v2/book/',{
+          cache : lru
+        }).then(function(res){
+           console.log(res);
+        }, function(error){
+            console.log(error);
+        })
+
+      }])
+      
+ </script>  
+</body>
+</html>

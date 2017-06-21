@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>文件上传(ng-file-upload)</title>
+  <script src="../node_modules/angular/angular.js"></script>
+  <script src="../node_modules/ng-file-upload/dist/ng-file-upload.js"></script>
+  <script src="../node_modules/ng-file-upload/dist/ng-file-upload-shim.min.js"></script>
+</head>
+<body ng-app="app">
+  <form ng-controller="FileController">
+      图片：
+      <img ng-src="{{uploadImg}}" alt=""/>
+      <br/>
+      当前上传用户：
+      <input type="text" name="name" placeholder="请输入您的名称" ng-model="name">
+      <br/>
+      <button ngf-select ng-model="file" name="file" ngf-pattern="image/*" accept="image/*" ngf-max-size="20MB" ngf-min-height="100">Select</button>
+      <br/>
+      <button type="submit" ng-click="submit()">submit</button> 
+      <br /> {{fileInfo.name}}
+      <br /> {{fileInfo.size}} 
+  </form>
+  <script>
+     var app = angular.module('app', ['ngFileUpload']);
+    app.controller('FileController', function ($scope, Upload) {
+      $scope.uploadImg = '';
+      //提交
+      $scope.submit = function () {
+        $scope.upload($scope.file);
+      };
+      $scope.upload = function (file) {// file是自己上传的参数
+        $scope.fileInfo = file;
+        Upload.upload({
+          //服务端接收
+          url: 'Ashx/UploadFile.ashx',
+          //上传的同时带的参数
+          data: { 'username': $scope.username },
+          file: file
+        }).progress(function (evt) {
+          //进度条
+          var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
+          console.log('progess:' + progressPercentage + '%' + evt.config.file.name);
+        }).success(function (data, status, headers, config) {
+          //上传成功
+          console.log('file ' + config.file.name + 'uploaded. Response: ' + data);
+          $scope.uploadImg = data;
+        }).error(function (data, status, headers, config) {
+          //上传失败
+          console.log('error status: ' + status);
+        });
+      };
+    });
+  </script>
+</body>
+</html>

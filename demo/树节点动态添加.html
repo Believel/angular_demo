@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+
+ <style>
+    .tree {
+        overflow: hidden;
+    }
+    
+    .tree>li>span.active+ul,
+    .tree>li>ul>li>span.active+ul {
+        display: block;
+       
+    }
+     .tree>li>span.active+ul{
+       margin-left: 10px;
+     }
+      .tree>li>ul>li>span.active+ul {
+        margin-left: 20px;
+      }
+    </style>
+</head>
+<body ng-app="app">
+  <div class="container" ng-controller="demo">
+      <div class="row">
+          <div class="col-xs-3">
+            <ul class="tree list-unstyled">
+                  <li ng-repeat="it in tree track by index">
+                      <span ng-click="it.isOpen=!it.isOpen" ng-class="{active:it.isOpen}" >{{ it.title }}</span>
+                      <ul ng-if="it.child" class="list-unstyled">
+                          <li ng-repeat="i in it.child">
+                              <i class="icon-sort-down"></i><span ng-click="openBom(i.id)" ng-class="{active:i.isOpen}">{{ i.title }}</span>
+                              <ul ng-if="i.child">
+                                  <li ng-repeat="t in i.child">
+                                      <i class="icon-sort-down"></i><span ng-class="{active:t.isOpen}" ng-click="t.isOpen=!t.isOpen">{{ t.title }}</span>
+                                  </li>
+                              </ul>
+                          </li>
+                      </ul>
+                  </li>
+              </ul>
+          </div>
+          <div class="col-xs-9">
+            <!-- bom家族列表界面 -->
+            <div ng-show="mode == 'bomFamilyList'">
+              <bom-family></bom-family>
+            </div>
+            <!-- bom家族详情页界面 -->
+            <div ng-show = "mode == 'bomFamilyDetail'">
+               <bom-family-detail></bom-family-detail>
+            </div>
+            <!-- bom分类列表界面 -->
+              <div ng-show = "mode== 'bomClassifyList'">
+                  <bom-classify></bom-classify>
+              </div>
+            <!-- bom分类详情页界面 -->
+            <div ng-show = "mode == 'bomClassifyDetail'">
+               
+            </div>
+
+          </div>
+      </div>
+  </div>
+  <script src="../node_modules/angular/angular.js"></script>
+  <script>
+      angular.module('app',[])
+              .controller('demo',['$scope', function($scope){
+                      $scope.tree = [{
+                        title: 'BOM信息',
+                        isOpen: true,
+                        child: []
+                    }];
+                    $scope.mode = "bomFamilyList";
+                    //根据点击的分类节点显示对应的分类界面的列表
+                    $scope.openBom = function(id){
+                          // 1. 根据ID查询分类列表，然后显示页面
+                          // 2.
+                          $scope.mode = 'bomClassifyList';
+                          // 3. 绑定分类列表中的数据
+                      }
+              }])
+              // bom家族列表指令（需求：点击添加跳转到详情页）
+              .directive('bomFamily', function(){
+                  return {
+                    restrict:'E',
+                    controller:function($scope){
+                           $scope.addBomfamily = function(){
+                              $scope.mode = 'bomFamilyDetail';   
+                          }
+                      },
+                      template:'bom家族列表<button type="button" class="btn btn-info" ng-click="addBomfamily()">添加</button>'
+
+                }
+              })
+              // bom家族详情指令(点击保存增加一条bom分类信息的节点树)
+              .directive('bomFamilyDetail', function(){
+                return {
+                    restrict:'E',
+                    controller:function($scope){
+                        var count = 0;
+                          $scope.addBomClassfiy = function(){
+                              $scope.tree[0].child.push({title:'Bom家族',isOpen:true,id:count++,child:[]}); 
+                          }
+                    },
+                    template:'bom家族详情<button type="button" class="btn btn-info" ng-click="addBomClassfiy()">保存</button>'
+
+                }
+
+              })
+              // bom分类列表指令
+              .directive('bomClassify', function(){
+                return {
+                  restrict:'E',
+                    controller:function($scope){
+                      
+                    },
+                    template:'<div>BOM分类信息表<button type="button" class="btn btn-info">添加</button></div>'
+
+                }
+              })
+              // bom分类详情指令
+  </script>
+</body>
+</html>

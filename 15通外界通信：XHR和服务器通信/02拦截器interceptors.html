@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title> interceptors</title>
+</head>
+<body ng-app="app">
+  <div ng-controller="demoCtrl">
+    
+  </div>
+  <script src="../node_modules/angular/angular.js"></script>
+  <script>
+  // 如果我们想要为请求添加全局功能，例如身份验证、错误处理，在请求发送给服务器之前或者从服务器返回时对其进行拦截
+  // 对于身份验证，如果服务器返回401状态码，我们会希望将用户重定向到登录页面。
+  // 拦截器实际上是$http服务中的基础中间件，用来向应用的业务流程中注入新的逻辑。
+  // 四种拦截器：两种成功拦截器，两种失败拦截器
+  // 1、request
+  // 2、response
+  // 3、requestError
+  // 4、responseError
+      var app = angular.module('app', []);
+      app.controller('demoCtrl',['$scope', function($scope){
+
+      }])
+      app.factory('myInterceptor', function($q){
+          var interceptor = {
+              'request' : function(config){
+                //成功的请求方法
+                  return config;//或者$q.when(config);
+              },
+              'response' : function(response){
+                //响应成功
+                return response;//或者$q.when(config);
+              },
+              'requestError' : function(rejection){
+                  return rejection;//或者$q.reject(rejection)
+              },
+              'responseError' : function(rejection){
+                  return rejection;//或者$q.reject(rejection)
+              }
+          }
+          return interceptor;
+      })
+      app.config(function($httpProvider){
+        $httpProvider.interceptors.push('myInterceptor')
+
+      })
+      
+ </script>  
+</body>
+</html>
