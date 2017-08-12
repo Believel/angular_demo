@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title> 甘特图demo</title>
+  <link rel="stylesheet" href="http://cdn.jsdelivr.net/angular.gantt/latest/angular-gantt.min.css">
+</head>
+<body ng-app="app">
+  <div ng-controller="demoCtrl">
+    <div gantt data=data>
+      <gantt-table></gantt-table>
+      <gantt-movable></gantt-movable>
+      <gantt-tooltips></gantt-tooltips>
+    </div>
+  </div>
+  <script src="../node_modules/angular/angular.js"></script>
+  <script src="http://cdn.jsdelivr.net/angular.gantt/latest/angular-gantt.min.js"></script>
+  <script>
+      var app = angular.module('app', ['gantt', 'gantt.table', 'gantt.movable', 'gantt.tooltips']);
+      app.controller('demoCtrl',['$scope', function($scope){
+          $scope.data = [
+            {name: 'row1', tasks: [
+                {name: 'task1', from: <date>, to: <date>},
+                {name: 'task2', from: <date>, to: <date>}
+                ]
+            },
+            {name: 'row2', tasks: [
+                {name: 'task3', from: <date>, to: <date>},
+                {name: 'task4', from: <date>, to: <date>}
+              ]
+            }
+        ];
+      }])
+      
+ </script>  
+</body>
+</html>

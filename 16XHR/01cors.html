@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title> </title>
+</head>
+<body ng-app="app">
+  <div ng-controller="demoCtrl">
+    
+  </div>
+  <script src="../node_modules/angular/angular.js"></script>
+  <script>
+      var app = angular.module('app', []);
+      //如果我们使用cors,我们首先要告诉angular我们正在使用cors
+      app.config(function($httpProvider){
+          $httpProvider.defaults.useXDomain = true;
+          delete $httpProvider.defaults.headers.common['X-Requested-With'];
+
+
+      })
+      app.controller('demoCtrl',['$scope', function($scope){
+
+      }])
+      
+ </script>  
+</body>
+</html>

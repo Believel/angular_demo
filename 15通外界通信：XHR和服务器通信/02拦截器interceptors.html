@@ -24,27 +24,50 @@
       app.controller('demoCtrl',['$scope', function($scope){
 
       }])
-      app.factory('myInterceptor', function($q){
+      app.factory('myInterceptor', function($q, $rootScope, Auth){
           var interceptor = {
               'request' : function(config){
                 //成功的请求方法
+                   
                   return config;//或者$q.when(config);
               },
               'response' : function(response){
                 //响应成功
+                if(response.config.url == 'api/login'){
+                    //假设API服务器返回的数据格式如下：
+                    //{token : "AUTH_TOKEN"}
+                    Auth.SetToken(response.data.token);
+                }
                 return response;//或者$q.when(config);
               },
               'requestError' : function(rejection){
                   return rejection;//或者$q.reject(rejection)
               },
               'responseError' : function(rejection){
+                  switch(rejection.status){
+                      case 401:
+                          if(rejection.config.url!=='api/login'){
+                              //如果当前不是在登录页面
+                              $rootScope.$broadcast('auth:loginRequired');
+                          }
+                          break;
+                      case 403:
+                          $rootScope.$broadcast('auth:forbidden');
+                          break;
+                      //.....
+                  }
                   return rejection;//或者$q.reject(rejection)
               }
           }
           return interceptor;
       })
       app.config(function($httpProvider){
-        $httpProvider.interceptors.push('myInterceptor')
+        $httpProvider.interceptors.push('myInterceptor');
+        //设置$httpProvider
+        //添加特定的http头
+        // $httpProvider.defaults.headers.common = 'accept:application/json,text/plain,*/*';//默认的头
+        $httpProvider.defaults.headers.common['X-Requested-By'] = 'app';
+        
 
       })
       

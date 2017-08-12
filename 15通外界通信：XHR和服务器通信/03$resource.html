@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title> $resource</title>
+</head>
+<body ng-app="app">
+  <div ng-controller="demoCtrl">
+    
+  </div>
+  <script src="../node_modules/angular/angular.js"></script>
+  <script src="../node_modules/angular-resource/angular-resource.js"></script>
+  <script>
+ // $resource服务可以创建一个资源对象，我们可以用它非常方便地同支持RESTful的服务端数据源进行交互，当同支持RESTful的数据模型一起工作时，它就派上用场了。支持与RESTful的后端数据源进行交互
+ // REST:Representational State Transfer(表征状态转移)，是服务器用来只能化提供数据服务的一种方式。
+ // 通常$resource对象有五个常用的方法：两个基于HTTPGET方法，三个非GET类型的方法
+ // 1、两个HTTPGET方法可以接收三个参数：
+ //    1.1、params(对象)   随请求发送的参数
+ //    1.2、successFn(函数)   当http成功响应的回调函数
+ //    1.3、errorFn(函数)     当http非成功响应的回调函数
+ //  get(params, successFn, errorFn)
+      var app = angular.module('app', ['ngResource']);
+      app.controller('demoCtrl',['$scope', function($scope){
+        var User = $resource('/api/users/',{userId:'@id'});
+        //发起一个get请求，带有参数
+        User.get({id:'123'},function(req){
+            //处理响应成功
+        }, function(err){
+            //处理错误
+        })
+
+      }])
+      
+ </script>  
+</body>
+</html>

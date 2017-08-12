@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title> </title>
+</head>
+<body ng-app="app">
+  <div ng-controller="demoCtrl">
+    <ul>
+      <li ng-repeat="item in students|orderBy:'age':false ">
+        {{item.age}} 
+      </li>
+    </ul>
+  </div>
+  <script src="../node_modules/angular/angular.js"></script>
+  <script>
+      var app = angular.module('app', []);
+      app.controller('demoCtrl',['$scope', function($scope){
+            $scope.students = [
+                {name: '小明', age: 12},
+                {name: '老王', age: 81},
+                {name: '小米', age: 6}
+            ]
+      }])
+      
+ </script>  
+</body>
+</html>

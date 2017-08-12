@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title> angularJS监视路由变化</title>
+</head>
+<body ng-app="app">
+  <div id="navigation">
+    <a href="#!/home">Home</a>
+    <a href="#!/about">About</a>
+  </div>
+  <div ng-view></div>
+  <script type="text/ng-template" id="home.html">
+    <h1>Home</h1>
+  </script>
+  <script type="text/ng-template" id="about.html">
+    <h1>About</h1>
+  </script>
+  <script src="../node_modules/angular/angular.js"></script>
+  <script src="../node_modules/angular-route/angular-route.js"></script>
+  <script>
+      var app = angular.module('app', ['ngRoute']);
+      app.config(function($routeProvider){
+        $routeProvider
+          .when('/home', {
+            templateUrl:'home.html'
+          })
+          .when('/about', {
+            templateUrl: 'about.html'
+          })
+          .otherwise({
+            redirectTo: '/home'
+          })
+      });
+      app.run(function($rootScope, $location){
+        // 监视路由的状态变化
+        $rootScope.$on('$routeChangeStart', function(evt, next, current){
+          console.log('route begin change');
+        })
+        $rootScope.$on('$routeChangeSuccess', function(evt, current, previous){
+            console.log("route have already changed:" + $location.path());
+        })
+      })
+    
+ </script>  
+</body>
+</html>

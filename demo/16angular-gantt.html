@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="angular-gantt.css" />
+    <script src="../node_modules/angular/angular.js"></script>
+    <script src="../node_modules/moment/moment.js"></script>
+    <script src="../node_modules/angular-moment/angular-moment.js"></script>
+    <script src="angular-gantt.js"></script>
+  </head>
+  <body ng-app="myApp">
+    <script>
+        var myApp = angular.module('myApp', ['gantt']);
+        myApp.controller('Ctrl', ['$scope','$window', function($scope, $window){
+
+          $scope.cutSomeHeight = function() {
+            $scope.options.maxHeight -= 50;
+          }
+
+          $scope.options = {
+            maxHeight: 500,
+            data: [],
+            viewScale: "1 month",
+            columnWidth: 100
+          }
+
+          for (var i=0; i<100; i++){
+            $scope.options.data.push({name: 'Task' + i, tasks: [{name: i, from: moment("2015-01-01","YYYY-MM-DD").add(i % 12, 'months'), to: moment("2015-06-01","YYYY-MM-DD").add(i % 12, 'months')}]})
+          }
+       }]);
+    </script>
+    <div ng-controller="Ctrl">
+      <button ng-click="
+
+      ()">Cut</button>
+      <div gantt options="options"></div>
+    </div>
+  </body>
+</html>

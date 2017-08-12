@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title> </title>
+</head>
+<body ng-app="app">
+  <div ng-controller="demoCtrl">
+      <form ng-submit="formSubmit()">
+        <input type="file" name="filename" class="file">
+        <br/>
+        <input type="submit" value="保存">
+      </form>
+  </div>
+  <script src="node_modules/angular/angular.js"></script>
+  <script>
+      var app = angular.module('app', []);
+      app.controller('demoCtrl',['$scope', function($scope){
+        
+      }])
+      
+ </script>  
+</body>
+</html>

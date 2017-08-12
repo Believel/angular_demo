@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>哈哈</title>
+</head>
+<body>
+  <script>
+      // var str = "absddeerf";
+      // var r = new RegExp('e');
+      // var o = r.exec(str);
+      // console.log(o);
+      // // 将日期"1995-1-1"修改为："1995年1月1号"
+      // var str = "1995-1-1";
+      // var newStr = str.replace(/(\d+)\-(\d+)\-(\d+)/, "$1年$2月$3号");
+      // console.log(newStr);
+      // //RegExp.$1.....RegExp.$99用法
+      // var r = /^(\d{4})-(\d{1,2})-(\d{1,2})$/;
+      // var o = r.exec("1992-10-15");
+      // console.log(o);
+      // s1 = RegExp.$1;
+      // s2 = RegExp.$2;
+      // s3 = RegExp.$3;
+      // console.log(s1+ " " + s2+ " "+s3);
+      
+
+      var data = [
+      {name:"s1"},
+      {name:"s2"},
+      {name:"s3"},
+      {name:"s4"}
+      ]
+      for(var i = 0; i < data.length; i++){
+        if((i+1) ==data.length){
+          break;
+        }
+        var num1 = data[i].name.substr(1);
+        var num2 = data[i+1].name.substr(1); 
+        console.log(num1);
+        console.log(num2);
+      }
+  </script>
+</body>
+</html>

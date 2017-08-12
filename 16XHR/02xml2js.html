@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title> xml转化成json</title>
+</head>
+<body ng-app="app">
+  <script src="../node_modules/angular/angular.js"></script>
+  <script src="../lib/xml2json.js"></script>
+  <script src="../lib/angular-xml.js"></script>
+  <script>
+      var app = angular.module('app', ['xml']);
+     app.factory('xmlParser', function(){
+         var x2js = new X2JS();
+         return {
+              xml2json : x2js.xml2json,
+              // json2xml : json2xml_str
+         }
+     })
+     app.run(function($http, xmlParser){
+         $http.get('/api/xml', {
+                    transformResponse : function(data){
+                        console.log(data)
+                        return xmlParser.xml2json(data);
+                    }
+                }).then(function(data){
+                    console.log(data);
+                })
+     })
+      
+ </script>  
+</body>
+</html>

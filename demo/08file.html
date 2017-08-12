@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script src="../node_modules/jquery/dist/jquery.js"></script>
+</head>
+<body>
+<!-- target="framename;我们将页面放在iframe里处理就不担心刷新的问题了，然后再设置一个回调就可以处理服务端返回的参数" -->
+  <form action="http://baidu.com" target="" id="uploadForm" enctype="multipart/form-data">
+　　<input id="file" type="file" name="file"/>
+　　<input type="submit" name="submit" id="submit" value="upload" />
+  </form>
+  <script>
+    var form = $('#uploadForm');
+    form.on("submit", function(){
+        var seed = Math.floor(Math.random()*1000),
+        id = "uploader-iframe" + seed,
+        callback = "uploader-cb" + seed,
+        iframe = $("<iframe id='"+id+"' name='"+name+"' style='display:none'></iframe"),
+        url = form.attr("action");
+        form.attr("target", id).append(iframe).attr("action",url+">iframe="+callback);
+        window[callback] = function(data){
+          console.log(data);
+          iframe.remove();
+          form.removeAttr("target");
+          form.attr("action", url);
+          window[callback] = undefined;
+        }
+    })
+    window.top.window[callback](data)
+  </script>
+</body>
+</html>

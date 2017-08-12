@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+  <meta charset="UTF-8">
+  <title>显示注入和隐式注入</title>
+  <script src="node_modules/angular/angular.js"></script>
+</head>
+<body>
+<div ng-controller="demo1">
+  {{msg}}
+</div>
+<!-- <div ng-controller="demo2">
+  {{msg}}
+</div> -->
+  <script>
+      angular.module('app',[])
+      // 显示注入
+             .controller('demo1',["$scope", function(s){
+              console.log(s);
+                s.msg = 'hhh';
+
+             }])
+             // .controller('demo2', demo2)
+             // demo2.$inject = ['$scope'];
+             // function demo2($scope){
+             //    $scope.msg = "helloworld";
+             // }
+  </script>
+</body>
+</html>

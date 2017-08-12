@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script src="../node_modules/jquery/dist/jquery.js"></script>
+</head>
+<body>
+ <form action="http://baidu.com" target="" id="uploadForm" enctype="multipart/form-data">
+　　<input id="file" type="file" name="file"/>
+　　<input type="submit" name="submit" id="submit" value="upload" />
+  </form>
+  <script>
+  console.log(new FormData($('#uploadForm'))[0])
+      $.ajax({
+        url:'/upload',
+        type:'POST',
+        cache:false,
+        data:new FormData($('#uploadForm'))[0],
+        processData: false,
+        contentType: false
+      }).done(function(res){
+        console.log(res);
+      }).fail(function(res){
+
+      })
+  </script>
+</body>
+</html>

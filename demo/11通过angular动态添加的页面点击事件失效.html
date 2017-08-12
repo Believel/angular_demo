@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title> 测试</title>
+</head>
+<body ng-app="app">
+  <div ng-controller="demo">
+    <ul>
+    <li ng-repeat="item in jsonArr">
+      <div ng-bind-html="item.temp|htmlContent" compile-html></div>
+    </li>
+  </ul>
+  </div>
+  <script src="jquery.js"></script>
+  <script src="bootstrap.min.js"></script>
+  <script src="bootstrap-datepicker.min.js"></script>
+  <script src="../node_modules/angular/angular.js"></script>
+  <script>
+      var app = angular.module('app', []);
+      app.controller('demo', function($scope){
+          $scope.val = "nihao"
+          $scope.change = function(){
+            $scope.val = "1333";
+          }
+          $scope.jsonArr = [{
+            temp: "<input type='text' class='form-control datepicker' ng-model='val' placeholder='请输入值' style='background:red;'' ng-click='change()'>"
+         }];
+         $scope.showCoverBox = function(){
+            console.log("测试")
+         }
+      })
+      app.filter('htmlContent', ["$sce", function($sce){
+         return function(text) {
+          // 通过$sce.trustAsHtml(text)将字符串编译成可加载的html
+            return $sce.trustAsHtml(text);
+         }
+      }])
+      app.directive('compileHtml', function($compile){
+        return {
+          restrict: 'A',
+          replace: true,
+          link: function(scope, ele, attrs){
+              scope.$watch(attrs.ngBindHtml,
+                 function(html) {
+                  console.log(html);
+                ele.html(html);
+                $compile(ele.contents())(scope);
+              });
+          }
+        }
+      })
+      
+ </script>  
+</body>
+</html>

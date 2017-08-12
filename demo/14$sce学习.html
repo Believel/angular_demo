@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title> $sce学习</title>
+</head>
+<body ng-app="app">
+  <div ng-controller="demoCtrl">
+    第一种方式：<br/>
+    有$sce处理：<audio ng-src="{{sceControl(formData.mediaUrl)}}" controls="controls">您的浏览器不支持html5</audio><br/>
+    无$sce处理：<audio ng-src="{{formData.mediaUrl}}" controls="controls">您的浏览器不支持html5</audio><br/>
+    第二种方式：<br/>
+    <audio  ng-src="{{data.url}}"  controls="controls">您的浏览器不支持html5</audio>
+  </div>
+  
+
+  <!-- trustAsHtml -->
+  <div ng-controller="demo2">
+     未处理的：
+    <div ng-repeat="item in formData">
+        {{item.name}} :{{item.htmlVal}}
+    </div>
+
+    <br/>处理过的：<button ng-click="look()">查看处理结果</button>
+    <div ng-repeat="item in data">
+        {{item.name}} :<p ng-bind-html = "item.htmlVal"></p>
+    </div>
+  </div>
+  <script src="../node_modules/angular/angular.js"></script>
+  <script>
+      var app = angular.module('app', []);
+      app.controller('demoCtrl',['$scope','$sce', function($scope, $sce){
+          // 第一种方式数据
+          $scope.formData = {
+            "name": "视频",
+            "mediaUrl": 'http://res.audiogroup.cn/res/upload/agx_ims_creative/audio/20160307/bpryk96.mp3'
+          };
+          $scope.sceControl = $sce.trustAsResourceUrl;//第一种处理方式
+          // 第二种方式数据源
+          $scope.data = {
+            "name" :"视频",
+            "url" : 'http://res.audiogroup.cn/res/upload/agx_ims_creative/audio/20160307/bpryk96.mp3'
+          };
+          $scope.data.url = $sce.trustAsResourceUrl($scope.data.url);//第二种处理方式
+      }])
+      app.controller('demo2', ['$scope', '$sce', function($scope, $sce){
+         //未处理数据源
+        $scope.formData=[
+            {"name":"张春玲","htmlVal":"我是<span style='color:red;'>张春玲<span>"},
+            {"name":"sb","htmlVal":"我是<span style='color:red;'>sb<span>"}
+        ];  
+
+        //处理结果
+        $scope.look = function(){
+            $scope.data=[
+                {"name":"张春玲","htmlVal":"我是<span style='color:red;'>张春玲<span>"},
+                {"name":"sb","htmlVal":"我是<span style='color:red;'>sb<span>"}
+            ];
+            for(var i=0;i<$scope.data.length;i++){
+                $scope.data[i].htmlVal = $sce.trustAsHtml($scope.data[i].htmlVal);
+            }
+        };
+
+      }])
+ </script>  
+</body>
+</html>

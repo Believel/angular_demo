@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title> promise对象</title>
+</head>
+<body ng-app="app">
+ 
+  <script src="../node_modules/angular/angular.js"></script>
+  <script>
+      var app = angular.module('app', []);
+      app.factory('service', ['$q', function($q){
+          //现在就可以访问到$q库了
+          var deferred = $q.defer();//创建一个deferred对象
+          //此对象暴露三个方法，以及一个可以用于处理promise的promise属性
+          deferred.resolve({name:'zpp',username:'@user'});//用来执行deferred promise
+          deferred.reject("can't update user");//用来拒绝 deferred promise
+          //等同于 deferred.resolve($q.reject("can't update user"));
+          
+          
+      }])
+     
+      
+ </script>  
+</body>
+</html>

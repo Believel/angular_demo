@@ -27,6 +27,7 @@
       $scope.uploadImg = '';
       //提交
       $scope.submit = function () {
+        console.log($scope.file);
         $scope.upload($scope.file);
       };
       $scope.upload = function (file) {// file是自己上传的参数
