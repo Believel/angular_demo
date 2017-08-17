@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../lib/console.css">
+</head>
+<body ng-controller="demo">
+<div class="container">
+    <div class="row">
+        <table class="table table-hover table-bordered">
+            <thead>
+            <tr>
+                <th class="col-sm-2">id</th>
+                <th class="col-sm-2">title</th>
+                <th class="col-sm-1">is_del</th>
+                <th class="col-sm-1">content</th>
+                <th class="col-sm-1">user_id</th>
+                <th class="col-sm-1">classification_id</th>
+                <th class="col-sm-1">created_at</th>
+                <th class="col-sm-1">updated_at</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="item in list">
+                <td>{{item.id}}</td>
+                <td>{{item.title}}</td>
+                <td>{{item.is_del}} 次</td>
+                <td>{{item.content}}</td>
+                <td>{{item.user_id}}</td>
+                <td>{{item.classification_id}}</td>
+                <td>{{item.created_at}}</td>
+                <td>{{item.updated_at}}</td>
+            </tr>
+            </tbody>
+            <tfoot>
+            <tr>
+                <td colspan="8">
+                    <div class="pull-right">
+                        <div class="pagination-info">
+                            <span class="ng-binding">共有{{total}}条</span>
+                            <div class="pagination-info">
+                                <select ng-model="pageTotal" class="form-control" ng-change="search(true)">
+                                    <option value="1">1条/页</option>
+                                    <option value="10">10条/页</option>
+                                    <option value="20">20条/页</option>
+                                    <option value="30">30条/页</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="pagination-info form-group-sm">跳至<input type="text" class="input-group-sm" ng-model="current" ng-change="search(true)" />页</div>
+                        <uib-pagination force-ellipses="false" boundary-links="true" total-items="total" ng-model="current" max-size="10" ng-change="search(true)" items-per-page="pageTotal||10"
+                                        class="pagination-sm" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></uib-pagination>
+                    </div>
+                </td>
+            </tr>
+            </tfoot>
+        </table>
+    </div>
+</div>
+<script src="../node_modules/angular/angular.min.js"></script>
+<script src="../lib/ui-bootstrap-tpls-0.14.3.min.js"></script>
+<script>
+    var app = angular.module('app', ['ui.bootstrap']);
+    app.controller('demo', ['$scope','$http', function ($scope, $http) {
+        $scope.search = function (isPage) {
+            $scope.pageTotal = 1;
+            if (!isPage) $scope.current = 1;
+            $http({
+                method:'GET',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8' },
+                url:'http://api.geovis.yunxiaotui.wang/v1/app/knowledges',
+                params:{page: $scope.current,withCredentials: true}
+            }).then(function(data){
+                console.log(data);
+                $scope.list = data.data.data.data;
+                console.log($scope.list)
+                $scope.total = data.data.data.total;
+            })
+
+        }
+        $scope.search();
+    }])
+
+</script>
+</body>
+</html>

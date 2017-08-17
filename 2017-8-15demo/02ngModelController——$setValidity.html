@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" type="" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <style>
+
+    </style>
+</head>
+<body ng-controller="demo">
+    <div>
+        <form name="myForm" class="css-from" novalidate>
+            <!--下面是整数-->
+            <div>
+                整数(0-10):
+                <input type="number" ng-model="size" name="size" min="0" max="10" integer/>
+                {{size}}
+                <br/>
+                <span ng-show="myForm.size.$error.integer">不是合法的整数!</span>
+                <span ng-show="myForm.size.$error.min || myForm.size.$error.max">数值必须位于0到10之间</span>
+            </div>
+            <!--下面必须是浮点数-->
+            <div>
+                浮点数：
+                <input type="text" ng-model="length" name="length" smart-float>
+                {{length}}
+                <br/>
+                <span ng-show="myForm.length.$error.float">不是合法的浮点数！</span>
+            </div>
+            <!--下面是远程校验-->
+            <div>
+                远程校验：
+                
+            </div>
+        </form>
+    </div>
+
+
+
+
+
+<script src="../node_modules/angular/angular.min.js"></script>
+<script>
+    angular.module('app',[])
+            .controller('demo', ['$scope', function($scope){
+                    
+            }])
+//        自定义验证指令
+        .directive('contenteditable', function () {
+            return {
+                require: 'ngModel',
+                link: function (scope, elem, attrs, ctrl) {
+
+                }
+            }
+        })
+</script>   
+</body>
+</html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body ng-controller="demo">
+  <div ng-include src="'a.html'"></div>
+  <script src="../node_modules/angular/angular.js"></script>
+  <script>
+    var app = angular.module('app',[]);
+    app.controller('demo', ['$scope', function($scope){
+
+    }]);
+  </script>
+</body>
+</html>

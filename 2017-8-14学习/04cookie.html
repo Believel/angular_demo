@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>cookie学习</title>
+    <style>
+        .captcha_img{cursor:pointer;height:40px; width:173px;}
+    </style>
+</head>
+<body>
+    <form name="loginForm">
+        <div>
+            <div>请登录：</div>
+            <div>
+                <input type="text" maxlength="20" name="userAccount" placeholder="用户名" />
+            </div>
+            <div>
+                <input type="password" name="password" placeholder="密码" />
+            </div>
+            <div>
+                <input type="text" id="captcha" placeholder="验证码"/>
+                <span id="captchaChecked" style="display:none;color:green;font-weight:bold">√</span>
+            </div>
+            <div>
+                <img class="captcha_img" id="captchaImg" alt="点击刷新验证码">
+            </div>
+            <div>
+                <button type="button" id="submit">登录</button>
+            </div>
+        </div>
+    </form>
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script src="../lib/md5.js"></script>
+    <script>
+        var captchaChecked = false;
+
+        $(function() {
+            refreshCaptcha();
+
+            $("#captcha").on("keyup", checkCaptchaInput);
+            $("#captchaImg").on("click", refreshCaptcha);
+            $("#submit").on("click", goLogin);
+        });
+
+        function checkCaptchaInput(){
+            var captchaText =$(this).val(); //得到验证码输入框的值
+            console.log(captchaText);
+            if(captchaText.length <=3 ){ //验证码一般大于三位
+                $("#captchaChecked").hide();
+                return;
+            }
+
+            ajaxRequest("/servlet/auth/verifyCaptcha", {captcha : captchaText},
+                function callback(result) {
+                    if(result.code == "40001"){
+                        if(result.data==true){
+                            $("#captchaChecked").show();
+                            captchaChecked = true;
+                        }else{
+                            $("#captchaChecked").hide();
+                            captchaChecked = false;
+                        }
+                    }else{
+                        alert(result.message);
+                    }
+                });
+
+            if(event.keyCode==13){
+                goLogin();
+            }
+        }
+
+        function goLogin() {
+            if(!captchaChecked){
+                alert("请输入正确的验证码！");
+                return;
+            }
+
+            var params = $("form").serializeObject();
+            params.password = md5(params.password);//密码进行md5加密
+            ajaxRequest("/servlet/auth/webLogin", params,
+                function callback(result) {
+                    if(result.code == "40001"){
+                        alert("登录成功");
+                        history.go(-1);
+                    }
+                },
+                function errorCallback(){ //发生错误，刷新验证码
+                    refreshCaptcha();
+                });
+        }
+
+        function refreshCaptcha() {
+            //重载验证码
+            $('#captchaImg').attr('src', getApiRoot()+'/servlet/auth/captcha?' + Math.random());
+        }
+    </script>
+</body>
+</html>

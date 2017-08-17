@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+  <meta charset="UTF-8">
+  <title>登录界面验证码详解</title>
+</head>
+<body>
+  <div class="js5-form" id="js5-form" ng-controller="enterCtrl">
+        <div id="enter-all" >
+            <h3>jnshu后台登录</h3>
+            <form action="" name="myForm">
+                <div class="js5-input-div">
+                    <div class="js5-input-img1"></div>
+                    <input id="js5-userNum" type="text" name="userName" placeholder="用户名" maxlength="12"  ng-model="userName" ng-keyup="mykey($event)" required/>
+                </div>
+            </form>
+            <form action="" name="registerForm">
+                <div class="js5-input-div">
+                    <div class="js5-input-img2"></div>
+                    <input id="js5-password" type="password" name="userPsd" placeholder="密码" maxlength="20" ng-model="userPsd" ng-keyup="mykey($event)" ng-minlength="5" ng-maxlength="16" required/>
+                </div>
+            </form>
+            <!--账号和密码的登录框-->
+            <form action="" >
+                <div class="js5-input-div">
+                    <span class="js5-input-divSpan">验证码：</span>
+                    <input type="text" placeholder="不区分大小写" class="js5-form3-input" id="js5-form3-input" ng-model="writeCode"  maxlength="6" ng-keyup="mykey($event)">
+                    <input type="text" class="js5-authCode" value=""  id="js5-authCode" ng-model="showAuthCode" disabled="disabled">
+                     <!--disabled="disabled"禁止验证码框文字被选中-->
+                    <span class="spanShift" ng-click="changeVerify()">获取</span>
+                </div>
+            </form>
+        </div>
+  </div>
+  <script src="../node_modules/angular/angular.min.js"></script>
+  <script>
+      var enter=angular.module("myApp");
+      enter.controller('enterCtrl',['$scope','$http',function ($scope,$http) {
+          $scope.changeVerify = function () {//定义了一个点击事件，获取验证码
+              var authCode = "";
+              var authCodeLength = 4;//取几个随机数字
+              var randomArray = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
+              for (var i = 0; i < authCodeLength; i++) {
+                  var index = Math.floor(Math.random() * 36);//随机取一位数
+                  authCode += randomArray[index];//取四位数，并+相连
+              }
+              $scope.showAuthCode = authCode;//赋值
+              console.log($scope.showAuthCode);
+          };
+
+          //上面是封装的获取验证码的函数，会在下面进行调用
+          (function () {
+              $scope.changeVerify();//调用点击事件。
+              $scope.enter=function (userName,userPsd) {
+                  //点击登录按钮事件，将双向绑定的账号密码当做参数传入函数
+                  if ($scope.writeCode.toUpperCase() ==$scope.showAuthCode){//toUpperCase()将小写转化为大写
+                      //双向绑定验证码输入框，可以直接使用，这里是验证验证码
+                      $http({
+                          method:"POST",
+                          url:"你的跨域地址",//$http的固定格式
+                          params:{
+                              "name":userName,
+                              "pwd":userPsd
+                              //双向绑定的参数传到下个页面
+                          }
+                      }).then(function (res) {
+                          //获取服务器返回的参数
+                          console.log(res);
+                          if (res.data.code!==0){
+                              //参数不为0的时候，弹出提示
+                              alert(res.data.message);
+                          }else {
+                              //参数为0的时候，跳转页面
+//                              $state.go("home.studentList");
+
+                          }
+                      })
+                  }else {
+                      alert("验证码输入错误咯，咯咯咯");
+                      $scope.changeVerify();//验证后，刷新验证码
+                  }
+              }
+          }());
+      }]);
+  </script>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <!--<link rel="stylesheet" href="My97DatePicker/skin/WdatePicker.css">-->
+</head>
+<body ng-app="demo">
+<div class="container">
+    <div class="row">
+        <form class="form-inline">
+            <div class="form-group">
+                <label class="control-label col-sm-2">开始日期</label>
+                <div class="col-sm-4 text-right">
+                    <input type="text" class="from-control" ymd end="end" ng-model="start">
+                </div>
+                <label class="control-label col-sm-2">结束日期</label>
+                <div class="col-sm-4 text-right">
+                    <input type="text" class="from-control" ymd start="start" ng-model="end">
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<script src="../node_modules/jquery/dist/jquery.js"></script>
+<script src="My97DatePicker/lang/zh-cn.js"></script>
+<!--<script src="My97DatePicker/calendar.js"></script>-->
+<!--<script src="My97DatePicker/WdatePicker.js"></script>-->
+<script src="../node_modules/angular/angular.js"></script>
+<script src="moment.js"></script>
+<script src="WdatePicker.js"></script>
+
+<script>
+    angular.module('app', [])
+        .controller('demo', ['$scope', function ($scope) {
+//            开始日期
+            $scope.start = '';
+//            结束日期
+            $scope.end = '';
+
+
+
+        }])
+        .directive('ymd', function () {
+            return {
+                restrict:'A',
+                require:'ngModel',
+                link: function (scope, element, attrs, ngModel) {
+
+                    element.on('focus', function() {
+                        console.log(this);
+                        WdatePicker({
+                            dateFmt: 'yyyy-MM-dd'
+                        });
+
+                        console.log(attrs.start)
+                        if (attrs.start) {
+                            var diff = moment(moment(element.val())).diff(scope.$eval(attrs.start), 'days');
+                            if (diff < 0) {
+                                element.parents('.form-group').addClass('has-error');
+                                element.val('');
+                                ngModel.$setViewValue('');
+                                return false;
+                            } else {
+                                element.parents('.form-group').removeClass('has-error');
+                            }
+                        }
+                        if (attrs.end) {
+                            var diff = moment(scope.$eval(attrs.end)).diff(moment(element.val()), 'days');
+                            if (diff < 0) {
+                                element.parents('.form-group').addClass('has-error');
+                                element.val('');
+                                ngModel.$setViewValue('');
+                                return false;
+                            } else {
+                                element.parents('.form-group').removeClass('has-error');
+                            }
+                        }
+                        ngModel.$setViewValue(element.val());
+                    })
+                }
+            }
+        })
+</script>
+</body>
+</html>

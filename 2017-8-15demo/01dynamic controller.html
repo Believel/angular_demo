@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>angularjs中模块bootstrap后,动态注册新的controller</title>
+</head>
+<body>
+<!--案例来源地址-->
+<!--http://blog.csdn.net/aitangyong/article/details/48135961-->
+
+
+    <div id="div1">
+        <input type="button" value="dynamic" ng-click="add();"></input>
+    </div>
+
+
+<!--JQUERY和angular的加载顺序一定要注意-->
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script src="../node_modules/angular/angular.min.js"></script>
+
+<script>
+    var isPageReady = false;
+//    模块的$contrllerProvider,用来动态注册controller
+    var controllerProvider = null;
+//    创建一个模块，并记录$controllerProvider
+    var myApp = angular.module('app', [], function ($controllerProvider) {
+        controllerProvider = $controllerProvider;
+    });
+    function controller1($scope) {
+        console.log("controller1 executed.");
+        $scope.add = function () {
+            $('#div1').append("<div id='div2'>dynamic add</div>");
+            registerController("div2", "div1_ctrl2", function controller2($scope) {
+                console.log("controller2 executed.");
+            })
+        }
+    }
+    //页面加载完成之后，再加载模块
+    $(function () {
+        registerController("div1", "div1_ctrl", controller1);
+        angular.bootstrap($("#div1")[0], ['app']);
+        isPageReady = true;
+    })
+
+
+
+    function registerController(elementId, controllerName, func) {
+        $('#'+elementId).attr("ng-controller", controllerName);
+        if(isPageReady == false){
+            myApp.controller(controllerName, func);
+        }else {
+
+
+            controllerProvider.register(controllerName, func);
+
+//            $("#"+elementId)
+//                angular.element("#"+elementId)
+//           当Angular的app已经启动编译好了之后，有时候你又想强行进入做一些逻辑或者修改，可以使用JQuery/jqLite元素的injector()方法
+
+                  console.log(angular.element("#"+elementId).injector())
+                    angular.element("#"+elementId).injector().invoke(function($compile, $rootScope) {
+                $compile($("#"+elementId))($rootScope);
+            });
+        }
+    }
+
+
+
+//    有时候我们需要动态的增加controller,比如我们的项目中1个页面是有各种控件组成的，比如按钮、文本框等都是我们封装的一个控件，每个控件都有自己的scope,
+//    也就是说每个控件都有自己的controller.最终每个控件被解析成html的时候，大概是下面这个样子。id属性和ng-controller都是动态生成的。
+
+
+
+</script>
+</body>
+</html>

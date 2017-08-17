@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" type="" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <style>
+        div[contenteditable] {
+            cursor: pointer;
+            background: #E75D4C;
+        }
+    </style>
+</head>
+<!--学习网址：http://blog.csdn.net/liangklfang/article/details/51320195-->
+<body ng-controller="demo">
+    <div>
+        <div contenteditable="true" ng-model="content" title="Click to dfit">Some</div>
+        <pre>model={{content}}</pre>
+    </div>
+<script src="../node_modules/angular/angular.min.js"></script>
+<script>
+    angular.module('app',[])
+            .controller('demo', ['$scope', function($scope){
+                    
+            }])
+        .directive('contenteditable', function () {
+            return {
+                require: 'ngModel',
+//                ng-model指令是一个特殊的指令，他提供更底层的API来处理控制器中的数据，当我们在指令中使用ng-model时候可以访问一个特殊的API,这个API用来处理数据的绑定，验证，CSS更新等不实际操作DOM的事情
+//                ng-model控制器会随着ngModel被一直注入到指令中，其中包含一些方法，为了访问ngModelController必须使用require设置。
+//                注意：这个指令没有隔离作用域，如果给这个指令设置隔离作用域将会导致内部ngMode无法更新外部的ngModel
+
+//               link函数的第四个参数就是ngModelController控制器
+                link: function (scope, elem, attrs, ctrl) {
+//               view->model更新Model
+                    elem.bind('keyup', function () {
+                        scope.$apply(function () {
+                            ctrl.$setViewValue(elem.text());
+//                            为了设置作用域中的视图值，需要调用ngMode.$setViewValue函数
+                        })
+                    })
+                }
+            }
+        })
+</script>   
+</body>
+</html>
