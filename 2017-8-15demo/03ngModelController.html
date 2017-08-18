@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" type="" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <style>
+
+    </style>
+</head>
+<!--学习网址：http://blog.gejiawen.com/2015/12/20/using-ng-model-controller-with-angular-directive/?utm_source=tuicool&utm_medium=referral-->
+<body ng-controller="demo">
+    <h1>自定义指令</h1>
+    <time-duration ng-model="test"></time-duration>
+    <input type="text" ng-model="test">
+<script src="../node_modules/angular/angular.min.js"></script>
+<script>
+    angular.module('app',[])
+            .controller('demo', ['$scope', function($scope){
+                  $scope.test = 1;
+            }])
+            .directive('timeDuration', TimeDurationDirective);
+
+</script>   
+</body>
+</html>
