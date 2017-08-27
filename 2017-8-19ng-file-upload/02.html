@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../node_modules/angular/angular.js"></script>
+    <script src="ng-file-upload-shim.js"></script>
+    <script src="ng-file-upload.js"></script>
+</head>
+<body ng-controller="demo">
+
+    <form  enctype="multipart/form-data"  ng-submit="upload()" name="uploadForm">
+        <input type="file" name="file">
+        <input type="hidden" name="type" ng-model="data.type"/>
+        <input type="submit"  value="上传" />
+    </form>
+    <img ng-src="{{remoteUrl}}" alt="">
+    <script>
+        angular.module('app', ['ngFileUpload'])
+            .controller('demo', function ($scope, Upload, $http) {
+                $scope.data = {};
+                $scope.data.type = 'plug';
+
+              $scope.upload = function () {
+                  var file = document.querySelector('input[type=file]').files[0];
+                  $scope.data.file = file;
+                  console.log($scope.data);
+                  $http({
+                      url:'http://api.geovis.yunxiaotui.wang/v1/upload',
+                      method:'post',
+                      headers: {'Content-Type':undefined},
+                      transformRequest: angular.identity,
+                      data: $scope.data
+                  }).then(function (res) {
+                      console.log(res);
+                  })
+              }
+
+            })
+    </script>
+</body>
+</html>

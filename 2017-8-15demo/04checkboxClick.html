@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            width:200px;
+            height:200px;
+            background: #0b93d5;
+        }
+    </style>
+</head>
+<body ng-controller="demo">
+  <div ng-click="ck($event, list)" ng-repeat="list in lists">
+      <input type="checkbox" ng-model="list.check">
+  </div>
+<script src="../node_modules/angular/angular.min.js"></script>
+<script>
+    angular.module('app',[])
+        .controller('demo', ['$scope', function ($scope) {
+            $scope.lists = [
+                {check:false}
+            ];
+
+            $scope.ck = function (event, list) {
+                console.log(event)
+                console.log(list.check);
+            }
+        }])
+</script>
+</body>
+</html>

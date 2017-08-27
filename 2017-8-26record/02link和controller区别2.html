@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<custom-directive></custom-directive>
+
+<script src="../node_modules/angular/angular.js"></script>
+<script>
+    angular.module('app', [])
+        .directive('customDirective', customDirective)
+        .directive('childDirective', childDirective)
+        function customDirective() {
+            var directive = {
+                restrict:'EA',
+                template:'<child-directive></child-directive>',
+//                因为controller函数中此时所有的child-directive指令中的link函数还未运行所以替换无效
+//                controller: function ($scope, $element) {
+//                    console.log($element);
+//                    $element.find('span').text('hello cnblogs!');
+//                },
+                link: function (scope, el) {
+                    el.find('span').text('hello cnblogs!');
+                }
+            };
+            return directive;
+        };
+        function childDirective() {
+            var directive = {
+                restrict:'EA',
+                template:'<h1>hello xpy9009</h1>',
+                replace: true,
+                link: function (scope, element, attr) {
+                    console.log(element)
+//                    //replaceWith:用指定的 HTML 内容或元素替换被选元素。
+                    element.replaceWith(angular.element('<span>'+element.text() + '</span>'));
+                }
+            };
+            return directive;
+        };
+</script>
+</body>
+</html>

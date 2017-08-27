@@ -2,9 +2,30 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d8b2dd20-fbd9-46e0-a1f2-d8bff9d5d641" name="默认的" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/2017-8-15demo/03ngModelController.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/2017-8-15demo/04checkboxClick.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/2017-8-19ng-file-upload/01.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/2017-8-19ng-file-upload/02.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/2017-8-26record/01link和controller区别.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/2017-8-26record/02link和controller区别2.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/angular-ui-router-demo/01.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/angular-ui-router-demo/views/home.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/2017-8-15demo/02ngModelController——$setValidity.html" afterPath="$PROJECT_DIR$/2017-8-15demo/02ngModelController——$setValidity.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/2017-8-14学习/03ui-bootstrap-page.html" afterPath="$PROJECT_DIR$/2017-8-14学习/03ui-bootstrap-page.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/2017-8-15demo/02ngModelController.html" afterPath="$PROJECT_DIR$/2017-8-15demo/02ngModelController.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/ng-file-upload/LICENSE" afterPath="$PROJECT_DIR$/node_modules/ng-file-upload/LICENSE" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/ng-file-upload/README.md" afterPath="$PROJECT_DIR$/node_modules/ng-file-upload/README.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/ng-file-upload/dist/FileAPI.js" afterPath="$PROJECT_DIR$/node_modules/ng-file-upload/dist/FileAPI.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/ng-file-upload/dist/FileAPI.min.js" afterPath="$PROJECT_DIR$/node_modules/ng-file-upload/dist/FileAPI.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/ng-file-upload/dist/ng-file-upload-all.js" afterPath="$PROJECT_DIR$/node_modules/ng-file-upload/dist/ng-file-upload-all.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/ng-file-upload/dist/ng-file-upload-all.min.js" afterPath="$PROJECT_DIR$/node_modules/ng-file-upload/dist/ng-file-upload-all.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/ng-file-upload/dist/ng-file-upload-shim.js" afterPath="$PROJECT_DIR$/node_modules/ng-file-upload/dist/ng-file-upload-shim.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/ng-file-upload/dist/ng-file-upload-shim.min.js" afterPath="$PROJECT_DIR$/node_modules/ng-file-upload/dist/ng-file-upload-shim.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/ng-file-upload/dist/ng-file-upload.js" afterPath="$PROJECT_DIR$/node_modules/ng-file-upload/dist/ng-file-upload.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/ng-file-upload/dist/ng-file-upload.min.js" afterPath="$PROJECT_DIR$/node_modules/ng-file-upload/dist/ng-file-upload.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/ng-file-upload/index.js" afterPath="$PROJECT_DIR$/node_modules/ng-file-upload/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/ng-file-upload/package.json" afterPath="$PROJECT_DIR$/node_modules/ng-file-upload/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package-lock.json" afterPath="$PROJECT_DIR$/package-lock.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/多重路由和视图/03ui-router.html" afterPath="$PROJECT_DIR$/多重路由和视图/03ui-router.html" />
     </list>
     <ignored path="angular_demo.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -24,11 +45,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="450">
-      <file leaf-file-name="03ngModelController.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/2017-8-15demo/03ngModelController.html">
+      <file leaf-file-name="01link和controller区别.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/2017-8-26record/01link和controller区别.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="594">
-              <caret line="22" column="15" lean-forward="false" selection-start-line="22" selection-start-column="15" selection-end-line="22" selection-end-column="15" />
+            <state relative-caret-position="336">
+              <caret line="48" column="10" lean-forward="true" selection-start-line="48" selection-start-column="10" selection-end-line="48" selection-end-column="10" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="02link和controller区别2.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/2017-8-26record/02link和controller区别2.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="338">
+              <caret line="30" column="27" lean-forward="false" selection-start-line="30" selection-start-column="27" selection-end-line="30" selection-end-column="27" />
               <folding />
             </state>
           </provider>
@@ -51,6 +82,8 @@
       <find>invoke</find>
       <find>publishExternalAPI</find>
       <find>$cfg</find>
+      <find>upload</find>
+      <find>angular</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -59,16 +92,26 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/2017-8-14学习/03ui-bootstrap-page.html" />
         <option value="$PROJECT_DIR$/2017-8-14学习/04cookie.html" />
         <option value="$PROJECT_DIR$/2017-8-14学习/02使用jq和angular实现登录界面验证码详解.html" />
         <option value="$PROJECT_DIR$/2017-8-15demo/01dynamic controller.html" />
         <option value="$PROJECT_DIR$/2017-8-15demo/date.html" />
         <option value="$PROJECT_DIR$/日期插件指令书写/01date.html" />
         <option value="$PROJECT_DIR$/日期插件指令书写/momentjsDemo.html" />
-        <option value="$PROJECT_DIR$/2017-8-15demo/02ngModelController.html" />
         <option value="$PROJECT_DIR$/2017-8-15demo/02ngModelController——$setValidity.html" />
         <option value="$PROJECT_DIR$/2017-8-15demo/03ngModelController.html" />
+        <option value="$PROJECT_DIR$/2017-8-14学习/03ui-bootstrap-page.html" />
+        <option value="$PROJECT_DIR$/2017-8-14学习/03ui-bootstrap-page1111.html" />
+        <option value="$PROJECT_DIR$/多重路由和视图/03ui-router.html" />
+        <option value="$PROJECT_DIR$/angular-ui-router-demo/views/home.html" />
+        <option value="$PROJECT_DIR$/angular-ui-router-demo/01.html" />
+        <option value="$PROJECT_DIR$/2017-8-19ng-file-upload/ng-file-upload.js" />
+        <option value="$PROJECT_DIR$/2017-8-19ng-file-upload/02.html" />
+        <option value="$PROJECT_DIR$/2017-8-19ng-file-upload/01.html" />
+        <option value="$PROJECT_DIR$/2017-8-15demo/04checkboxClick.html" />
+        <option value="$PROJECT_DIR$/2017-8-15demo/02ngModelController.html" />
+        <option value="$PROJECT_DIR$/2017-8-26record/01$parent.html" />
+        <option value="$PROJECT_DIR$/2017-8-26record/02link和controller区别2.html" />
       </list>
     </option>
   </component>
@@ -92,11 +135,11 @@
     <handled-path value="$PROJECT_DIR$/bower_components/ng-img-crop/node_modules" />
     <handled-path value="$PROJECT_DIR$/node_modules" />
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
-    <option name="x" value="-11" />
-    <option name="y" value="-11" />
-    <option name="width" value="1847" />
-    <option name="height" value="754" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="15" />
+    <option name="y" value="353" />
+    <option name="width" value="1720" />
+    <option name="height" value="900" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -113,7 +156,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -124,20 +167,20 @@
             <path>
               <item name="angular_demo" type="b2602c69:ProjectViewProjectNode" />
               <item name="angular_demo" type="462c0819:PsiDirectoryNode" />
-              <item name="2017-8-15demo" type="462c0819:PsiDirectoryNode" />
+              <item name="2017-8-26record" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="options.lastSelected" value="configurable.group.appearance" />
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="options.splitter.details.proportions" value="0.2" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../blog" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
     <property name="nodejs_interpreter_path" value="C:/Program Files/nodejs/node" />
@@ -146,6 +189,8 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\study\foreverstudy\demo\angular_demo\2017-8-19ng-file-upload" />
+      <recent name="D:\study\foreverstudy\demo\angular_demo\2017-8-14学习" />
       <recent name="D:\study\foreverstudy\demo\angular_demo\2017-8-15demo" />
     </key>
   </component>
@@ -180,28 +225,40 @@
       <workItem from="1502932405375" duration="2349000" />
       <workItem from="1502953102567" duration="7311000" />
       <workItem from="1502980291414" duration="2059000" />
-      <workItem from="1503018768759" duration="5424000" />
+      <workItem from="1503018768759" duration="6013000" />
+      <workItem from="1503129664679" duration="2283000" />
+      <workItem from="1503148104240" duration="5301000" />
+      <workItem from="1503195436808" duration="3237000" />
+      <workItem from="1503210025247" duration="16695000" />
+      <workItem from="1503229482259" duration="170000" />
+      <workItem from="1503230214602" duration="15000" />
+      <workItem from="1503278169840" duration="630000" />
+      <workItem from="1503326509717" duration="286000" />
+      <workItem from="1503392343736" duration="1823000" />
+      <workItem from="1503566715751" duration="810000" />
+      <workItem from="1503728060790" duration="7025000" />
+      <workItem from="1503796045866" duration="49000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="43592000" />
+    <option name="totallyTimeSpent" value="82505000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-11" y="-11" width="1942" height="1042" extended-state="7" />
+    <frame x="-11" y="-11" width="1942" height="1042" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Debug Logs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32897863" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32897863" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Execute Anonymous" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20148462" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22640508" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2497349" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Salesforce" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -249,17 +306,44 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <option name="time" value="1" />
+    </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/2017-8-15demo/03ngModelController.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="513">
+          <caret line="19" column="28" lean-forward="true" selection-start-line="19" selection-start-column="28" selection-end-line="19" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/console.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4671">
+          <caret line="173" column="26" lean-forward="true" selection-start-line="173" selection-start-column="26" selection-end-line="173" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/2017-8-14学习/03ui-bootstrap-page.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1404">
+          <caret line="52" column="193" lean-forward="true" selection-start-line="52" selection-start-column="163" selection-end-line="52" selection-end-column="193" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/2017-8-15demo/03ngModelController.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/2017-8-15demo/02ngModelController——$setValidity.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#1683#2399#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -382,13 +466,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/2017-8-14学习/03ui-bootstrap-page.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/2017-8-14学习/01ng-include和ng-template.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -424,13 +501,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/2017-8-15demo/date.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="621">
-          <caret line="44" column="29" lean-forward="true" selection-start-line="44" selection-start-column="29" selection-end-line="44" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/2017-8-15demo/01dynamic controller.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="27">
@@ -452,13 +522,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/日期插件指令书写/momentjsDemo.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="243">
-          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/日期插件指令书写/01date.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="648">
@@ -466,28 +529,138 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/2017-8-15demo/02ngModelController——$setValidity.html">
+    <entry file="file://$PROJECT_DIR$/lib/ui-bootstrap-tpls-0.14.3.min.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-405">
-          <caret line="45" column="0" lean-forward="true" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
-          <folding>
-            <element signature="e#1683#2399#0" expanded="false" />
-          </folding>
+        <state relative-caret-position="81">
+          <caret line="3" column="0" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/2017-8-15demo/02ngModelController.html">
+    <entry file="file://$PROJECT_DIR$/lib/console.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="351">
-          <caret line="13" column="4" lean-forward="true" selection-start-line="13" selection-start-column="4" selection-end-line="13" selection-end-column="4" />
-          <folding />
+        <state relative-caret-position="4671">
+          <caret line="173" column="26" lean-forward="false" selection-start-line="173" selection-start-column="26" selection-end-line="173" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/2017-8-14学习/03ui-bootstrap-page1111.html" />
+    <entry file="file://$PROJECT_DIR$/多重路由和视图/03ui-router.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="12" column="2" lean-forward="false" selection-start-line="12" selection-start-column="2" selection-end-line="13" selection-end-column="88" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/29安全性/01严格意义的上下文转义.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="17" column="35" lean-forward="false" selection-start-line="17" selection-start-column="35" selection-end-line="17" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/angular-ui-router-demo/01.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="669">
+          <caret line="34" column="45" lean-forward="false" selection-start-line="34" selection-start-column="45" selection-end-line="34" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/angular-ui-router-demo/views/home.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="10" lean-forward="false" selection-start-line="0" selection-start-column="10" selection-end-line="0" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/日期插件指令书写/momentjsDemo.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="243">
+          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/2017-8-14学习/03ui-bootstrap-page.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="509">
+          <caret line="76" column="46" lean-forward="false" selection-start-line="76" selection-start-column="46" selection-end-line="76" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/2017-8-19ng-file-upload/02.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1053">
+          <caret line="39" column="13" lean-forward="false" selection-start-line="39" selection-start-column="13" selection-end-line="39" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/2017-8-19ng-file-upload/ng-file-upload-shim.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2214">
+          <caret line="82" column="28" lean-forward="false" selection-start-line="82" selection-start-column="21" selection-end-line="82" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/2017-8-19ng-file-upload/ng-file-upload.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="8181">
+          <caret line="308" column="16" lean-forward="false" selection-start-line="308" selection-start-column="9" selection-end-line="308" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/2017-8-15demo/date.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="864">
+          <caret line="44" column="29" lean-forward="true" selection-start-line="44" selection-start-column="29" selection-end-line="44" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/2017-8-15demo/02ngModelController——$setValidity.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1215">
+          <caret line="45" column="0" lean-forward="false" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/2017-8-15demo/03ngModelController.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="594">
-          <caret line="22" column="15" lean-forward="false" selection-start-line="22" selection-start-column="15" selection-end-line="22" selection-end-column="15" />
+        <state relative-caret-position="459">
+          <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/2017-8-15demo/02ngModelController.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="311">
+          <caret line="30" column="39" lean-forward="true" selection-start-line="30" selection-start-column="39" selection-end-line="30" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/2017-8-15demo/04checkboxClick.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="351">
+          <caret line="22" column="29" lean-forward="false" selection-start-line="22" selection-start-column="29" selection-end-line="22" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/2017-8-19ng-file-upload/01.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="47" column="32" lean-forward="false" selection-start-line="47" selection-start-column="32" selection-end-line="47" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/2017-8-26record/02link和controller区别2.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="338">
+          <caret line="30" column="27" lean-forward="false" selection-start-line="30" selection-start-column="27" selection-end-line="30" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/2017-8-26record/01link和controller区别.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="48" column="10" lean-forward="true" selection-start-line="48" selection-start-column="10" selection-end-line="48" selection-end-column="10" />
           <folding />
         </state>
       </provider>

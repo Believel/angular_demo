@@ -38,7 +38,7 @@
                     elem.bind('keyup', function () {
                         scope.$apply(function () {
                             ctrl.$setViewValue(elem.text());
-//                            为了设置作用域中的视图值，需要调用ngMode.$setViewValue函数
+//                            为了设置作用域中的视图值，需要调用ngModel.$setViewValue函数
                         })
                     })
                 }

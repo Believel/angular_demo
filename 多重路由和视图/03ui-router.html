@@ -7,23 +7,28 @@
   <title> ui-router</title>
 </head>
 <body ng-app="app">
-  <div ng-controller="demoCtrl">
-    <form action="">
-    <!-- ng-repeat="n in firstname.key" -->
-        <input type="text" ng-model="firstname.key[0].name" >
-        {{firstname}}
-    </form>
-  </div>
+  <a ui-sref="blog">blog</a>
+  <div ui-view="view1"></div>
+  <div ui-view="view2"></div>
   <script src="../node_modules/angular/angular.js"></script>
   <script src="../node_modules/angular-ui-router/release/angular-ui-router.js"></script>
   <script>
-      var app = angular.module('app', []);
+      var app = angular.module('app', ['ui.router']);
+      app.config(function ($stateProvider) {
+          $stateProvider.state('blog', {
+              url: '/blog',
+              views: {
+                  'view1': {template:'<div>这是view1的界面</div>'},
+                  'view2': {template:'<div>这是view2的界面</div>'}
+              }
+          })
+              .state('blog.sub1', {
+                  url: '/blog/sub1',
+                  template:'这是子页面'
+              })
+      })
       app.controller('demoCtrl',['$scope', '$log', function($scope, $log){
-          $scope.firstname = {
-              key : [{
-                name : 'tangguodong'
-              }]
-          }
+
       }])
         
  </script>  

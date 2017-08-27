@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body ng-controller="demoCtrl">
+
+
+    <div ui-view></div>
+
+<script src="../node_modules/angular/angular.js"></script>
+<script src="../node_modules/angular-ui-router/release/angular-ui-router.js"></script>
+<script>
+    var app = angular.module('app', ['ui.router']);
+    app.config(['$stateProvider', function ($stateProvider) {
+        $stateProvider.state('home', {
+            url:'/home',
+            templateUrl:'views/home.html',
+//            预载入Resolve
+//            使用预载入功能，开发者可以预先载入一系列以来或者数据，然后注入到控制器中。在ngRoute中的resolve选项可以允许开发者在路由到达前载入数据保证(promises).
+//            预载入选项需要一个对象，这个对象的key即要注入到控制器的依赖，这个对象的value为需要被载入的factory服务
+            resove : {
+//                这个函数的值会被直接返回，因为它不是数据保证
+                person: function () {
+                    return {
+                        name:'Ari',
+                        email:'ari@fullstack.io'
+                    }
+                },
+//                这个函数为数据保证，因为它将在控制器被实例化之前载入
+                currentDetails: function ($http) {
+                    return $http({
+                        method: 'JSONP',
+                        url:'/currnet_details'
+                    })
+                }
+
+            }
+        })
+    }]);
+    app.controller('demoCtrl', ['$scope', function ($scope) {
+
+    }])
+    
+</script>
+</body>
+</html>

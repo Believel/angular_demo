@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../node_modules/angular/angular.js"></script>
+</head>
+<body ng-controller="demoCtrl">
+
+<script type="text/ng-template" id="tpl.html">
+    <!--如果我们不想将我们的数据从基本类型改为对象，我们可以用$parent变量重写第一个模板-->
+    <input type="text" ng-model="$parent.myPrimitive">
+</script>
+<div ng-include src="'tpl.html'"></div>
+<script type="text/ng-template" id="tpl1.html">
+    <input type="text" ng-model="myobject.aNumber">
+</script>
+<div ng-include src="'tpl1.html'"></div>
+
+<my-directive></my-directive>
+<my-directive2></my-directive2>
+<my-directive3></my-directive3>
+<script>
+    angular.module('app', [])
+        .controller('demoCtrl', ['$scope', function ($scope) {
+//            一般情况下：ng-if,ng-repeat,ng-switch,ng-view,ng-include都会创建一个子作用域
+
+             $scope.myPrimitive = 50;
+             $scope.myobject = {
+                 aNumber: 11
+             }
+
+        }])
+        .directive('myDirective', function () {
+            return {
+                restrict: 'EA',
+                template: '<div>{{vm.test}}</div>',
+//                link: function (scope, elm, attrs) {},
+                controller: directiveController,
+                controllerAs: 'vm'
+            }
+        })
+        .directive('myDirective2', function () {
+            return {
+                restrict: 'EA',
+                template: '<div>{{test}}</div>',
+                link: directiveLink
+            }
+        })
+
+//       编译之前执行控制器，编译之后执行链接
+        .directive('myDirective3', function () {
+            return {
+                restrict: 'EA',
+                template: '<div>3333{{test}}</div>',
+                link: directiveLink,
+                controller:directiveController3
+            }
+        })
+    function directiveController() {
+        var vm = this;
+        vm.test = "I'm from Controller";
+    };
+    function directiveLink(scope, elem, attr) {
+        scope.test = "I'm from Link";
+    };
+    function directiveController3($scope) {
+        $scope.test = "I'm from Controller";
+    }
+</script>
+</body>
+</html>

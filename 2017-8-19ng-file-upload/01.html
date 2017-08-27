@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../node_modules/angular/angular.js"></script>
+    <script src="ng-file-upload-shim.js"></script>
+    <script src="ng-file-upload.js"></script>
+</head>
+<body ng-controller="demo">
+    <img ngf-src="data.file || data.defaultImage" class="img-responsive" style="width:200px; height: 200px; max-width:500px;"/>
+    <div class="button" ngf-select="" ngf-pattern="'image/*'" ngf-multiple="false" ng-model="data.file">
+        选择文件
+    </div>
+    <button ng-click="upload()">上传</button>
+    <!--<form  enctype="multipart/form-data"  ng-submit="upload()" >-->
+        <!--<input type="file" name="file">-->
+        <!--<input type="hidden" name="type" value="information"/>-->
+        <!--<input type="submit" name="Submit" value="上传" />-->
+    <!--</form>-->
+    <img ng-src="{{remoteUrl}}" alt="">
+    <script>
+        angular.module('app', ['ngFileUpload'])
+            .controller('demo', function ($scope, Upload, $http) {
+                $scope.data = {
+                    file: null
+                };
+                $scope.upload = function () {
+//                    var file = document.querySelector('input[type=file]').files[0];
+                    console.log(file)
+                    if (!$scope.data.file) {
+                        return;
+                    }
+                    var fd = new FormData();
+                    var data = {
+                        classfication: 'plug',
+                        file: file,
+                    }
+                    fd.append('data', data);
+                    Upload.upload({
+                        url: 'http://api.geovis.yunxiaotui.wang/v1/upload',
+                        method:'POST',
+                        headers: {'Content-Type':'form-data'},
+//                        data: {
+//                            classfication: 'plug',
+//                            file: $scope.data.file
+//                        },
+                        data: fd
+//                        withCredentials:true
+//                        headers:'Content-Type:multipart/form-data;charset=utf-8'
+                    }).then(function (data) {
+                        console.log(data);
+                        $scope.remoteUrl = data.data.remote_url;
+                    }, function (error) {
+                        console.log("error");
+                    })
+
+//                    console.log($scope.data.file);
+//                    console.log(fd);
+
+//                    $http({
+//                        url: 'http://api.geovis.yunxiaotui.wang/v1/upload',
+//                        method:'POST',
+//                        headers: {'Content-Type':undefined},
+//                        transformRequest: angular.identity,
+//                        data:{
+//                            file: file
+//                        },
+//                        params:{type:'plug'}
+//                    }).then(function (data) {
+//                        console.log(data);
+//                        $scope.remoteUrl = data.data.remote_url;
+//                    }, function (err) {
+//                        console.log(err)
+//                    })
+
+
+                };
+
+
+            })
+    </script>
+</body>
+</html>
