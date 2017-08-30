@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="themes/default/css/ueditor.css">
+</head>
+<body ng-controller="demoCtrl">
+
+<div class="ueditor" ng-model="content"></div>
+<!--<div class="ueditor" ready="ready" ng-model="content"></div>-->
+
+
+<script src="ueditor.config.js"></script>
+<script src="ueditor.all.js"></script>
+<script src="ueditor.parse.js"></script>
+<script src="lang/zh-cn/zh-cn.js"></script>
+<script src="../dist/angular.min.js"></script>
+<script src="../dist/angular-ueditor.js"></script>
+
+<script>
+    angular.module('app',['ng.ueditor'])
+        .controller('demoCtrl', ['$scope', function ($scope) {
+            $scope.content = 'hello world';
+//            $scope.ready = function(editor){
+//                alert(editor.getContent());
+//            }
+        }])
+</script>
+</body>
+</html>

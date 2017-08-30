@@ -2,30 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d8b2dd20-fbd9-46e0-a1f2-d8bff9d5d641" name="默认的" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/2017-8-15demo/04checkboxClick.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/2017-8-19ng-file-upload/01.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/2017-8-19ng-file-upload/02.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/2017-8-26record/01link和controller区别.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/2017-8-26record/02link和controller区别2.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/angular-ui-router-demo/01.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/angular-ui-router-demo/views/home.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/angular-ueditor/utf8-jsp/01.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/2017-8-14学习/03ui-bootstrap-page.html" afterPath="$PROJECT_DIR$/2017-8-14学习/03ui-bootstrap-page.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/2017-8-15demo/02ngModelController.html" afterPath="$PROJECT_DIR$/2017-8-15demo/02ngModelController.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/ng-file-upload/LICENSE" afterPath="$PROJECT_DIR$/node_modules/ng-file-upload/LICENSE" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/ng-file-upload/README.md" afterPath="$PROJECT_DIR$/node_modules/ng-file-upload/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/ng-file-upload/dist/FileAPI.js" afterPath="$PROJECT_DIR$/node_modules/ng-file-upload/dist/FileAPI.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/ng-file-upload/dist/FileAPI.min.js" afterPath="$PROJECT_DIR$/node_modules/ng-file-upload/dist/FileAPI.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/ng-file-upload/dist/ng-file-upload-all.js" afterPath="$PROJECT_DIR$/node_modules/ng-file-upload/dist/ng-file-upload-all.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/ng-file-upload/dist/ng-file-upload-all.min.js" afterPath="$PROJECT_DIR$/node_modules/ng-file-upload/dist/ng-file-upload-all.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/ng-file-upload/dist/ng-file-upload-shim.js" afterPath="$PROJECT_DIR$/node_modules/ng-file-upload/dist/ng-file-upload-shim.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/ng-file-upload/dist/ng-file-upload-shim.min.js" afterPath="$PROJECT_DIR$/node_modules/ng-file-upload/dist/ng-file-upload-shim.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/ng-file-upload/dist/ng-file-upload.js" afterPath="$PROJECT_DIR$/node_modules/ng-file-upload/dist/ng-file-upload.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/ng-file-upload/dist/ng-file-upload.min.js" afterPath="$PROJECT_DIR$/node_modules/ng-file-upload/dist/ng-file-upload.min.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/ng-file-upload/index.js" afterPath="$PROJECT_DIR$/node_modules/ng-file-upload/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/node_modules/ng-file-upload/package.json" afterPath="$PROJECT_DIR$/node_modules/ng-file-upload/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package-lock.json" afterPath="$PROJECT_DIR$/package-lock.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/多重路由和视图/03ui-router.html" afterPath="$PROJECT_DIR$/多重路由和视图/03ui-router.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/日期插件指令书写/01date.html" afterPath="$PROJECT_DIR$/日期插件指令书写/01date.html" />
     </list>
     <ignored path="angular_demo.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -44,28 +23,7 @@
     <favorites_list name="angular_demo" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="450">
-      <file leaf-file-name="01link和controller区别.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/2017-8-26record/01link和controller区别.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="336">
-              <caret line="48" column="10" lean-forward="true" selection-start-line="48" selection-start-column="10" selection-end-line="48" selection-end-column="10" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="02link和controller区别2.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/2017-8-26record/02link和controller区别2.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="338">
-              <caret line="30" column="27" lean-forward="false" selection-start-line="30" selection-start-column="27" selection-end-line="30" selection-end-column="27" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="450" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -84,6 +42,7 @@
       <find>$cfg</find>
       <find>upload</find>
       <find>angular</find>
+      <find>dpTodayInput</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -96,7 +55,6 @@
         <option value="$PROJECT_DIR$/2017-8-14学习/02使用jq和angular实现登录界面验证码详解.html" />
         <option value="$PROJECT_DIR$/2017-8-15demo/01dynamic controller.html" />
         <option value="$PROJECT_DIR$/2017-8-15demo/date.html" />
-        <option value="$PROJECT_DIR$/日期插件指令书写/01date.html" />
         <option value="$PROJECT_DIR$/日期插件指令书写/momentjsDemo.html" />
         <option value="$PROJECT_DIR$/2017-8-15demo/02ngModelController——$setValidity.html" />
         <option value="$PROJECT_DIR$/2017-8-15demo/03ngModelController.html" />
@@ -112,6 +70,11 @@
         <option value="$PROJECT_DIR$/2017-8-15demo/02ngModelController.html" />
         <option value="$PROJECT_DIR$/2017-8-26record/01$parent.html" />
         <option value="$PROJECT_DIR$/2017-8-26record/02link和controller区别2.html" />
+        <option value="$PROJECT_DIR$/node_modules/jquery/dist/jquery.js" />
+        <option value="$PROJECT_DIR$/日期插件指令书写/01date.html" />
+        <option value="$PROJECT_DIR$/angular-ueditor/01.html" />
+        <option value="$PROJECT_DIR$/angular-ueditor/utf8-jsp/01.html" />
+        <option value="$PROJECT_DIR$/angular-ueditor/utf8-jsp/demo.html" />
       </list>
     </option>
   </component>
@@ -136,10 +99,10 @@
     <handled-path value="$PROJECT_DIR$/node_modules" />
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="15" />
-    <option name="y" value="353" />
-    <option name="width" value="1720" />
-    <option name="height" value="900" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1382" />
+    <option name="height" value="754" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -157,6 +120,7 @@
     </navigator>
     <panes>
       <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -164,16 +128,10 @@
               <item name="angular_demo" type="b2602c69:ProjectViewProjectNode" />
               <item name="angular_demo" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="angular_demo" type="b2602c69:ProjectViewProjectNode" />
-              <item name="angular_demo" type="462c0819:PsiDirectoryNode" />
-              <item name="2017-8-26record" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -188,6 +146,9 @@
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\study\foreverstudy\demo\angular_demo\angular-ueditor\utf8-jsp" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\study\foreverstudy\demo\angular_demo\2017-8-19ng-file-upload" />
       <recent name="D:\study\foreverstudy\demo\angular_demo\2017-8-14学习" />
@@ -237,16 +198,19 @@
       <workItem from="1503392343736" duration="1823000" />
       <workItem from="1503566715751" duration="810000" />
       <workItem from="1503728060790" duration="7025000" />
-      <workItem from="1503796045866" duration="49000" />
+      <workItem from="1503796045866" duration="8087000" />
+      <workItem from="1503886081048" duration="54000" />
+      <workItem from="1503996157199" duration="1788000" />
+      <workItem from="1504047900502" duration="597000" />
+      <workItem from="1504059059303" duration="589000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="82505000" />
+    <option name="totallyTimeSpent" value="93571000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-11" y="-11" width="1942" height="1042" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Debug Logs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -256,7 +220,7 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32897863" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Execute Anonymous" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22640508" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20042418" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2497349" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -265,6 +229,7 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="版本控制" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -312,83 +277,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/2017-8-15demo/03ngModelController.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="513">
-          <caret line="19" column="28" lean-forward="true" selection-start-line="19" selection-start-column="28" selection-end-line="19" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/console.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4671">
-          <caret line="173" column="26" lean-forward="true" selection-start-line="173" selection-start-column="26" selection-end-line="173" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/2017-8-14学习/03ui-bootstrap-page.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1404">
-          <caret line="52" column="193" lean-forward="true" selection-start-line="52" selection-start-column="163" selection-end-line="52" selection-end-column="193" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/2017-8-15demo/03ngModelController.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/2017-8-15demo/02ngModelController——$setValidity.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/日期插件指令书写/01date.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="729">
-          <caret line="27" column="23" lean-forward="true" selection-start-line="27" selection-start-column="23" selection-end-line="27" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/日期插件指令书写/momentjsDemo.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="243">
-          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/2017-8-15demo/01dynamic controller.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="486">
-          <caret line="18" column="26" lean-forward="false" selection-start-line="18" selection-start-column="26" selection-end-line="18" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/angular/angular.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75924">
-          <caret line="2812" column="25" lean-forward="false" selection-start-line="2812" selection-start-column="25" selection-end-line="2812" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/2017-8-15demo/01dynamic controller.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/angular/angular.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="74925">
-          <caret line="2775" column="25" lean-forward="true" selection-start-line="2775" selection-start-column="25" selection-end-line="2775" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/2017-8-15demo/01dynamic controller.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -508,27 +396,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/日期插件指令书写/WdatePicker.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/日期插件指令书写/My97DatePicker/calendar.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="4" column="708" lean-forward="false" selection-start-line="4" selection-start-column="708" selection-end-line="4" selection-end-column="708" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/日期插件指令书写/01date.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="648">
-          <caret line="27" column="23" lean-forward="false" selection-start-line="27" selection-start-column="23" selection-end-line="27" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lib/ui-bootstrap-tpls-0.14.3.min.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="81">
@@ -607,13 +474,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/2017-8-15demo/date.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="864">
-          <caret line="44" column="29" lean-forward="true" selection-start-line="44" selection-start-column="29" selection-end-line="44" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/2017-8-15demo/02ngModelController——$setValidity.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1215">
@@ -653,7 +513,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="338">
           <caret line="30" column="27" lean-forward="false" selection-start-line="30" selection-start-column="27" selection-end-line="30" selection-end-column="27" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -661,6 +520,114 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="336">
           <caret line="48" column="10" lean-forward="true" selection-start-line="48" selection-start-column="10" selection-end-line="48" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/angular2/greeter.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/日期插件指令书写/skin/WdatePicker.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/2017-8-15demo/date.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="693">
+          <caret line="44" column="29" lean-forward="true" selection-start-line="44" selection-start-column="29" selection-end-line="44" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/jquery/dist/jquery.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="432">
+          <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/日期插件指令书写/My97DatePicker/skin/WdatePicker.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/日期插件指令书写/My97DatePicker/calendar.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="4" column="708" lean-forward="false" selection-start-line="4" selection-start-column="708" selection-end-line="4" selection-end-column="708" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/日期插件指令书写/My97DatePicker/WdatePicker.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-612">
+          <caret line="12" column="25" lean-forward="true" selection-start-line="12" selection-start-column="25" selection-end-line="12" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/日期插件指令书写/WdatePicker.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="432">
+          <caret line="19" column="12" lean-forward="true" selection-start-line="19" selection-start-column="12" selection-end-line="19" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/日期插件指令书写/01date.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="621">
+          <caret line="50" column="46" lean-forward="false" selection-start-line="50" selection-start-column="46" selection-end-line="50" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/日期插件指令书写/My97DatePicker/skin/default/datepicker.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="239" column="19" lean-forward="false" selection-start-line="239" selection-start-column="11" selection-end-line="239" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/lib/webstorm.jar!/resources/html5-schema/html5/core-scripting.rnc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="268">
+          <caret line="12" column="16" lean-forward="false" selection-start-line="12" selection-start-column="16" selection-end-line="12" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/angular-ueditor/dist/controller.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/angular-ueditor/dist/angular-ueditor.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="721">
+          <caret line="93" column="0" lean-forward="false" selection-start-line="93" selection-start-column="0" selection-end-line="93" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/angular-ueditor/utf8-jsp/demo.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="486">
+          <caret line="18" column="26" lean-forward="false" selection-start-line="18" selection-start-column="26" selection-end-line="18" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/angular-ueditor/utf8-jsp/01.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="513">
+          <caret line="19" column="0" lean-forward="true" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
           <folding />
         </state>
       </provider>

@@ -10,26 +10,21 @@
 <div class="container">
     <div class="row">
         <form class="form-inline">
+
             <div class="form-group">
-                <label class="control-label col-sm-2">开始日期</label>
+                <label class="control-label col-sm-2">日期</label>
                 <div class="col-sm-4 text-right">
-                    <input type="text" class="from-control" ymd end="end" ng-model="start">
-                </div>
-                <label class="control-label col-sm-2">结束日期</label>
-                <div class="col-sm-4 text-right">
-                    <input type="text" class="from-control" ymd start="start" ng-model="end">
+                    <input type="text" id="c12" class="from-control" date ng-model="start" >
                 </div>
             </div>
         </form>
     </div>
 </div>
 <script src="../node_modules/jquery/dist/jquery.js"></script>
-<script src="My97DatePicker/lang/zh-cn.js"></script>
-<!--<script src="My97DatePicker/calendar.js"></script>-->
-<!--<script src="My97DatePicker/WdatePicker.js"></script>-->
+<script src="My97DatePicker/WdatePicker.js"></script>
 <script src="../node_modules/angular/angular.js"></script>
-<script src="moment.js"></script>
-<script src="WdatePicker.js"></script>
+
+
 
 <script>
     angular.module('app', [])
@@ -42,6 +37,25 @@
 
 
         }])
+        .directive('date', function() {
+            return {
+                restrict: 'A',
+                require: 'ngModel',
+                link: function(scope, element, attrs, ngModel) {
+
+                    element.on('focus', function() {
+                        WdatePicker({
+                            dateFmt: 'yyyy-MM-dd HH:mm:ss',
+                            el: this,
+                            minTime:'00:00:00',
+                            maxTime:'23:59:59'
+
+                        });
+                        ngModel.$setViewValue(element.val());
+                    })
+                }
+            };
+        })
         .directive('ymd', function () {
             return {
                 restrict:'A',
