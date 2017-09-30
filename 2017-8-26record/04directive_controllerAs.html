@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../node_modules/angular/angular.js"></script>
+</head>
+<body>
+<div ng-controller="demoCtrl as demo">
+    <my-directive max="3"></my-directive>
+</div>
+
+<script>
+    (function (angular) {
+        angular.module('app', [])
+            .controller('demoCtrl', demoCtrl)
+            .directive('myDirective', myDirective)
+        demoCtrl.$inject = [];
+        function demoCtrl() {
+            
+        }
+        myDirective.$inject = [];
+        function myDirective() {
+            var direcive = {
+                restrict: 'EA',
+                template:'<h1>好开森</h1><div>{{vm.max}}</div>',
+                scope: {
+                  max: '='
+                },
+                link: linkFun,
+                controller: exampleFun,
+                controllerAs:'vm',
+                bindToController:true//because the scope is isolated
+
+            };
+
+            return direcive;
+
+            function linkFun(scope, ele, attr, ctrl){
+//                console.log('max:' + scope.max);
+//                console.log('max:' + scope.vm.max)
+
+            }
+        }
+        exampleFun.$inject = ['$scope'];
+        function exampleFun($scope) {
+//            injecting $scope just for comparision
+            var vm = this;
+            vm.min = 1;
+            console.log('max:' + $scope.vm.max);
+            console.log('max:' + vm.max);
+
+        }
+    })(window.angular)
+</script>
+
+</body>
+</html>

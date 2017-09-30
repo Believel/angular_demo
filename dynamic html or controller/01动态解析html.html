@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html ng-app="app">
+  <head>
+    <meta charset="utf-8">
+    <title>$angularjs动态绑定html解析</title>
+  </head>
+  <body>
+    <div ng-controller="demoCtrl">
+      <h2>手动添加静态html</h2>
+      <div id="dd"></div>
+    </div>
+    <script src="../bower_components/jquery/dist/jquery.js"></script>
+    <script src="../bower_components/angular/angular.js"></script>
+    <script>
+    //   // 在angular中默认是不相信添加的HTML内容，对于添加的HTML内容，
+    // 首先必须利用$sce.trustAsHtml，告诉angular这是可信的HTML内容。否则你将会得到$sce:unsafe的异常错误
+        angular.module('app', [])
+                .controller('demoCtrl', ['$scope', '$compile', function($scope, $compile){
+                  $scope.title = 'haha';
+                  var html = '<p>{{title}}<p>';
+                  $compile(html)($scope).appendTo('#dd');
+
+
+                }])
+
+
+
+
+
+    </script>
+  </body>
+</html>

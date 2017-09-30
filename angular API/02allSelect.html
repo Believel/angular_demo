@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div ng-controller="MyController">
+    <input type="checkbox" ng-model="a" >
+    {{a}}
+
+    <button type="button" ng-click="changea()">改变</button>
+</div>
+
+<script src="../bower_components/angular/angular.js"></script>
+<script>
+    angular.module('app', [])
+        .controller('MyController', function($scope) {
+            $scope.selecta = function (a) {
+                if(a == true){
+                    $scope.a = true;
+                }else {
+                    $scope.a = false;
+                }
+            }
+            $scope.$watch('a', function (newVal) {
+                console.log(newVal)
+            })
+
+            $scope.changea = function () {
+
+                $scope.a = !$scope.a;
+                console.log($scope.a)
+            }
+
+         })
+</script>
+</body>
+</html>

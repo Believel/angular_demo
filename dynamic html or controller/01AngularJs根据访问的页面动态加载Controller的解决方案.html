@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body ng-controller="demoCtrl">
+
+
+
+<script src="../node_modules/jquery/dist/jquery.js"></script>
+<script src="../node_modules/angular/angular.min.js"></script>
+<script>
+    <!--http://www.jb51.net/article/60757.htm-->
+    var app = angular.module('app', [])
+        app.config(function ($controllerProvider, $compileProvider, $filterProvider, $provide, $routeProvider) {
+           app.register = {
+               controller: $controllerProvider.register,
+               directive: $compileProvider.directive,
+               filter: $filterProvider.register,
+               factory: $provide.factory,
+               service: $provide.service
+           };
+           app.asyncjs = function (js) {
+                return ["$q", "$route", "$rootScope","$script", function ($q, $route, $rootScope, $script) {
+                    var deferred = $q.defer();
+                    var dependencies = js;
+                    if (Array.isArray(dependencies)) {
+                        for (var i = 0; i < dependencies.length; i++) {
+                            dependencies[i] += "?v=" + v;
+                        }
+                    } else {
+                        dependencies += "?v=" + v;//v是版本号
+                    }
+                    $script(dependencies, function () {
+                        $rootScope.$apply(function () {
+                            deferred.resolve();
+                        });
+                    });
+                    return deferred.promise;
+                }];
+            };
+
+            $routeProvider.when('/:plugin', {
+                templateUrl: function(rd) {
+                    return 'plugin/' + rd.plugin + '/index.html';
+                },
+                resolve: {
+                    load: app.asyncjs('plugin/controller.js')
+                }
+        })
+</script>
+</body>
+</html>

@@ -10,7 +10,7 @@
 
 
     <div id="div1">
-        <input type="button" value="dynamic" ng-click="add();"></input>
+        <input type="button" value="dynamic" ng-click="add();" />
     </div>
 
 
@@ -24,6 +24,7 @@
     var controllerProvider = null;
 //    创建一个模块，并记录$controllerProvider
     var myApp = angular.module('app', [], function ($controllerProvider) {
+//        console.log($controllerProvider);
         controllerProvider = $controllerProvider;
     });
     function controller1($scope) {
@@ -34,7 +35,7 @@
                 console.log("controller2 executed.");
             })
         }
-    }
+    };
     //页面加载完成之后，再加载模块
     $(function () {
         registerController("div1", "div1_ctrl", controller1);

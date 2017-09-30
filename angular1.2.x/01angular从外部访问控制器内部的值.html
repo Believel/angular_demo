@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html ng-app="app">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+      <div ng-controller="demoCtrl" class="demo">
+          <ul>
+            <li ng-repeat="list in lists">{{list.count}}</li>
+          </ul>
+      </div>
+    <script src="jquery.min.js"></script>
+    <script src="angular.min.js"></script>
+      <script type="text/javascript">
+          angular.module('app', [])
+                .controller('demoCtrl', function($scope){
+                  $scope.lists = [
+                    { count : 2 },
+                    { count : 4 },
+                    { count : 6 }
+                  ];
+                  $scope.name = 'zpp';
+                  var appElement = document.querySelector('[ng-controller=demoCtrl]');
+                  // 得到jquery选择器指定的scope
+                  var $scope = angular.element($('.demo')).scope();
+                  console.log($scope)
+                  $scope.lists = [
+                    { count : 1 },
+                    { count : 3 },
+                    { count : 5 }
+                  ];
+
+                })
+
+      </script>
+  </body>
+</html>

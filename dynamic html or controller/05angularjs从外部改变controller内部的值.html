@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html ng-app="app">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+      <div ng-controller="demoCtrl" class="demo">
+          <ul>
+            <li ng-repeat="list in lists">{{list.count}}</li>
+          </ul>
+      </div>
+      <script src="../bower_components/jquery/dist/jquery.js"></script>
+      <script src="../bower_components/angular/angular.js"></script>
+      <script type="text/javascript">
+          angular.module('app', [])
+                .controller('demoCtrl', function($scope){
+                  $scope.lists = [
+                    { count : 2 },
+                    { count : 4 },
+                    { count : 6 }
+                  ];
+                  $scope.name = 'zpp';
+                  var appElement = document.querySelector('[ng-controller=demoCtrl]');
+                  // 得到jquery选择器指定的scope
+                  var $scope = angular.element($('.demo')).scope();
+                    $scope.lists = [
+                      { count : 1 },
+                      { count : 3 },
+                      { count : 5 }
+
+                    ];
+                })
+          // var appElement = document.querySelector('[ng-controller=demoCtrl]');
+          // 得到jquery选择器指定的scope
+          // var $scope = angular.element($('.demo')).scope();
+          // console.log($scope)
+          // $scope.$apply(function(){
+          //   // 如果$scope下面存在属性，就改变他
+          //   $scope.lists = [
+          //     { count : 1 },
+          //     { count : 3 },
+          //     { count : 5 }
+          //
+          //   ];
+          // })
+      </script>
+  </body>
+</html>

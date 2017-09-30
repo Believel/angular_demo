@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html ng-app="app">
+  <head>
+    <meta charset="utf-8">
+    <title>angular中的单选按钮</title>
+    <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.css">
+    <script src="../bower_components/angular/angular.js"></script>
+  </head>
+  <body>
+      <div ng-controller="demoCtrl">
+        <div class="btn-group">
+
+          <label>
+            <input type="radio" name="myTestRadio" ng-model="selection" value="a" ng-checked="true"
+                   />a
+          </label>
+          <label>
+            <input type="radio" name="myTestRadio" ng-model="selection" value="b" 
+                   />b
+          </label>
+          <label>
+            <input type="radio" name="myTestRadio" ng-model="selection" value="c"
+                   />c
+          </label>
+
+          <pre>
+             你选中的是 : {{selection}}
+          </pre>
+        </div>
+        <div ng-switch="selection.code">
+          <div ng-switch-when="a">
+             <h1>Dogs</h1>
+             <p>Welcome to a world of dogs.</p>
+          </div>
+          <div ng-switch-when="b">
+             <h1>Tutorials</h1>
+             <p>Learn from examples.</p>
+          </div>
+          <div ng-switch-when="c">
+             <h1>Cars</h1>
+             <p>Read about cars.</p>
+          </div>
+        </div>
+      </div>
+      <script type="text/javascript">
+          angular.module('app', [])
+                 .controller('demoCtrl', function($scope){
+
+                    $scope.selection = 'a';   //默认显示第一个
+
+                 })
+      </script>
+
+  </body>
+</html>

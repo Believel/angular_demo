@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>jqueryColorpicker</title>
+    <!-- <script type="text/javascript" src="../bower_components/jquery/dist/jquery.js">  </script> -->
+    <script type="text/javascript" src="jquery.js">  </script>
+    <script src="jquery.colorPicker.js"></script>
+  </head>
+  <body>
+    <input type="text" id="cp1">
+    <script type="text/javascript">
+      $(function(){
+        $("#cp1").colorpicker({
+          fillcolor: true,
+         success:function(o,color){
+             $("#color").val(color)
+         },
+
+         reset:function(o){
+             $("#color").val('');
+         }
+        });
+      })
+    </script>
+  </body>
+</html>

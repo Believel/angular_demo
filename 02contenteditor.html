@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="node_modules/jquery/dist/jquery.js"></script>
+    <script src="node_modules/angular/angular.js"></script>
+</head>
+<body ng-controller="demoCtrl">
+    <p my-editor ng-model="content">{{content}}</p>
+<script>
+    angular.module('app', [])
+        .controller('demoCtrl', ['$scope', function ($scope) {
+            $scope.content = 'editorContent';
+        }])
+        .directive('myEditor', function () {
+            return {
+                require:'ngModel',
+                link: function (scope, ele, attr, ctrl) {
+                    if (!ctrl) {
+                        return;
+                    }
+                    console.log(ele);
+                    angular.element(ele).bind('focus', function () {
+                        console.log('hahha');
+                    })
+                }
+            }
+        })
+</script>
+
+</body>
+</html>

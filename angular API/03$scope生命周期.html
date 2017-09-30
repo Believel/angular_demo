@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html ng-app="app">
+  <head>
+    <meta charset="utf-8">
+    <title>$scope</title>
+  </head>
+  <body>
+    <!-- ng-controller指令可以创建作用域 -->
+    <div ng-controller="demoCtrl">
+        <li ng-repeat="country in countries">
+            {{country.name}} has population of {{country.population}}
+        </li>
+        <hr>
+         World's population: {{population}} millions
+    </div>
+    <script src="../bower_components/angular/angular.js"></script>
+    <script>
+    // 生命周期的创建：创建的过程分为两个过程：一个是compile,另一个是link阶段
+    // 编译函数负责对模板DOM进行转化
+    // 链接函数负责将作用域和DOM进行链接
+
+
+  。
+        angular.module('app', [])
+                .controller('demoCtrl', function($scope){
+                  $scope.name = 'hello world';
+                  $scope.population = 7000;
+                  $scope.countries = [
+                    {name: 'France', population: 63.1},
+                    {name: 'United kingdom', population: 61.8}
+                  ];
+
+                })
+    </script>
+  </body>
+</html>

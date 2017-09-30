@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../bower_components/angular/angular.js"></script>
+</head>
+<body ng-app="cpoyExample">
+    <div ng-controller="exampleController">
+        <form novalidate class="simple-form">
+            Name: <input type="text" ng-model="user.name"><br>
+            E-mail: <input type="email" ng-model="user.email"><br>
+            Gender:<input type="radio" ng-model="user.gender" value="male">male
+                   <input type="radio" ng-model="user.gender" value="female">female<br>
+            <button ng-click="reset()">RESET</button>
+            <button ng-click="update(user)">SAVE</button>
+        </form>
+        <pre>form: {{user | json}}</pre>
+        <pre>master: {{master | json}}</pre>
+    </div>
+<script>
+    angular.module('cpoyExample', [])
+        .controller('exampleController', ['$scope', function ($scope) {
+//            copy(resource, destinaation);//对resource进行深copy
+            $scope.master = {};
+            $scope.user = {
+                name:'zpp',
+                email:'2267155797@qq.com',
+                gender:'female'
+            }
+            $scope.master = angular.copy($scope.user);//保存最初的值
+//            var test1 ;
+//            console.log(angular.copy(test1));//undefined
+//            var test2 = null;
+//            console.log(angular.copy(test2));//null
+//            var test3 = "a";
+//            console.log(angular.copy(test3, test2))//a
+            $scope.update = function (user) {
+                $scope.master = angular.copy(user);
+            };
+            $scope.reset = function () {
+                angular.copy($scope.master, $scope.user);
+                console.log($scope.master);
+                console.log($scope.user);
+            };
+//            $scope.reset();
+        }])
+</script>
+
+</body>
+</html>

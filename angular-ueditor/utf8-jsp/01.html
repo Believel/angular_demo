@@ -15,16 +15,19 @@
 <script src="ueditor.all.js"></script>
 <script src="ueditor.parse.js"></script>
 <script src="lang/zh-cn/zh-cn.js"></script>
-<script src="../dist/angular.min.js"></script>
-<script src="../dist/angular-ueditor.js"></script>
+<script src="../../node_modules/angular/angular.js"></script>
+<script src="../../node_modules/angular-ueditor/dist/angular-ueditor.js"></script>
 
 <script>
     angular.module('app',['ng.ueditor'])
         .controller('demoCtrl', ['$scope', function ($scope) {
             $scope.content = 'hello world';
+
+
+            console.log($scope.content);
 //            $scope.ready = function(editor){
 //                alert(editor.getContent());
-//            }
+//            };
         }])
 </script>
 </body>

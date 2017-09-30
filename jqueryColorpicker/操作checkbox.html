@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>checkbox</title>
+    <script type="text/javascript" src="../bower_components/jquery/dist/jquery.js">  </script>
+  </head>
+  <body>
+
+    <table class="table table-hover" id="test123">
+                    <tr>
+                        <th width="45">选择</th>
+                        <th>编码</th>
+                        <th width="100">驾校名称</th>
+                        <th width="100">合作驾校名称</th>
+                        <th width="100">申请时间</th>
+                        <th width="100">申请状态</th>
+                        <th width="100">操作</th>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" name="id" value="1" /></td>
+                        <td>12</td>
+                        <td>中大驾校</td>
+                        <td>潇湘驾校</td>
+                        <td>2016-04-15 14:40:20</td>
+                        <td class="tablestate">未处理</td>
+                        <td><a class="change button border-blue button-little update" href="#">修改申请状态</a></td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" name="id" value="1" /></td>
+                        <td>13</td>
+                        <td>中大驾校</td>
+                        <td>潇湘驾校</td>
+                        <td>2016-04-15 14:40:20</td>
+                        <td class="tablestate">未处理</td>
+                        <td><a class="change button border-blue button-little update" href="#">修改申请状态</a></td>
+                    </tr>
+                </table>
+  <!-- <input type="checkbox"  value="香蕉">   -->
+  <script type="text/javascript">
+    $(function(){
+        var arr = [];//用来存储id值
+        $('#test123 tr').click(function(){
+          var _this = $(this);
+          var html1 = _this.children('td').eq(1).text();//获取id的内容
+          if(_this.children('td').eq(0).children().prop('checked')){
+            // 选中的话就存储id数组
+            arr.push(html1);
+          }else {
+            //取消选中的话就从数组中删除
+             for(var i=0; i< arr.length; i++){
+               if(arr[i] == html1){
+                 arr.splice(i, 1);//删除取消的那一项
+               }
+             }
+          }
+
+          console.log(arr);
+
+        });
+    })
+  </script>
+  </body>
+</html>

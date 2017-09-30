@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../node_modules/angular/angular.js"></script>
+</head>
+<body>
+<div ng-controller="demoCtrl as demo">
+    111{{demo.name}}
+
+
+    <button type="button" ng-click="demo.greet()">问候</button>
+
+</div>
+<script>
+    angular.module('app', [])
+        .controller('demoCtrl', demoCtrl);
+    demoCtrl.$inject = ['$window'];
+    function demoCtrl($window){
+        var vm = this;
+        vm.name = 'tgd'
+        vm.$window = $window;
+    }
+    demoCtrl.prototype.greet = function(){
+        this.$window.alert('Hello, '+ this.name);
+    }
+//    使用controllerAs时，可以将Controller定义成javascript的原型类，在 HTML 视图中直接绑定原型类的属性和方法。
+//    这样做的优点是：
+
+//    可以使用 Javascript 的原型类， 我们可以使用更加高级的 ES6 或者 TypeScript 来编写 Controller ；
+//    避开了所谓的 child scope 原型继承带来的一些问题
+</script>
+</body>
+</html>

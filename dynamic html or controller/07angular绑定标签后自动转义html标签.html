@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html ng-app="app">
+  <head>
+    <meta charset="utf-8">
+    <title>angular绑定标签后自动转义html标签</title>
+  </head>
+  <body>
+    <div ng-controller="demoCtrl">
+        <div ng-repeat="article in articles">
+          <div class="panel-heading">
+            <h4><b>{{article.title}}</b></h4>
+          </div>
+          <div class="panel-body">
+            <article ng-bind-html="article.content | trustHtml ">
+            </article>
+          </div>
+        </div>
+
+    </div>
+    <script src="../bower_components/jquery/dist/jquery.js"></script>
+    <script src="../bower_components/angular/angular.js"></script>
+    <script src="../bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script type="text/javascript">
+      var app = angular.module('app', ['ngSanitize']);
+      app.controller('demoCtrl', function($scope){
+        $scope.articles = [
+          {title:'读书', content:'<p style="color:red;font-size=18px;">好好对自己，活下去才能看到最好的</p>'},
+          {title:'读书', content:'<p style="color:red;font-size=18px;">好好对自己，活下去才能看到最好的</p>'},
+          {title:'读书', content:'<p style="color:red;font-size=18px;">好好对自己，活下去才能看到最好的</p>'}
+        ]
+
+      });
+      app.filter('trustHtml', function($sce){
+        return function(input){
+          // $sce是angularjs自带的安全处理模块，$sce.trustAsHtml(input)方法便是将数据内容以html的形式进行解析并返回。
+          return $sce.trustAsHtml(input)
+        }
+      })
+    </script>
+  </body>
+</html>

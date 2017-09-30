@@ -8,19 +8,22 @@
 </head>
 <body ng-app="app">
   <div ng-controller="demoCtrl">
-      <form ng-submit="formSubmit()">
-        <input type="file" name="filename" class="file">
-        <br/>
-        <input type="submit" value="保存">
-      </form>
+    <input type="file" onchange="angular.element(this).scope().setFile(this)">
+    {{theFile.name}}
   </div>
   <script src="node_modules/angular/angular.js"></script>
   <script>
+  // AngularJS - 在文件上传框中保存文件名到作用域
       var app = angular.module('app', []);
       app.controller('demoCtrl',['$scope', function($scope){
-        
+        $scope.setFile = function(element){
+          $scope.$apply(function($scope){
+            $scope.theFile = element.files[0];
+          })
+
+        };
       }])
-      
- </script>  
+
+ </script>
 </body>
 </html>

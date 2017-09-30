@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html ng-app="app">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="../bower_components/jquery/dist/jquery.js"></script>
+    <script src="../bower_components/angular/angular.js"></script>
+  </head>
+  <body>
+    <div ng-controller="myController">
+      {{msg}}
+      <a href="javascript:;" id="btn">调用</a>
+
+    </div>
+    <script>
+      var app = angular.module('app', []);
+      app.controller('myController', function($scope){
+        $scope.msg = '你好，世界';
+        $scope.getData = function(){
+          return 'hello world';
+        }
+      });
+      window.onload = function(){
+        document.getElementById('btn').onclick = function(){
+          // 通过controller来获取angular应用
+          var appElement = document.querySelector('[ng-controller=myController]');
+          // 获取$scope变量
+          var $scope = angular.element(appElement).scope();
+          // 调用msg变量，并改变msg的值
+          $scope.msg = '123456';
+          // 上一行改变msg的值，如果想同步到angular控制器中，则需要调用$apply()方法即可
+          $scope.$apply();
+          // 调用控制器中的getData方法
+          console.log($scope.getData());
+        };
+      };
+    </script>
+
+  </body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html ng-app="app">
+  <head>
+    <meta charset="utf-8">
+    <title>$angularjs动态绑定html解析</title>
+  </head>
+  <body>
+    <div ng-controller="demoCtrl as demo">
+      <h2>手动添加静态html</h2>
+      <div ng-bind-html="demo.html"></div>
+    </div>
+    <div ng-controller="dynamicCtrl as dynamic">
+      <h2>手动添加复杂的html</h2>
+      <dy-compile html="{{dynamic.html}}">
+      </dy-compile>
+      <button ng-click="dynamic.change();">change</button>
+    </div>
+    <script src="../bower_components/angular/angular.js"></script>
+    <script>
+    //   // 在angular中默认是不相信添加的HTML内容，对于添加的HTML内容，
+    // 首先必须利用$sce.trustAsHtml，告诉angular这是可信的HTML内容。否则你将会得到$sce:unsafe的异常错误
+        angular.module('app', [])
+                .controller('demoCtrl', ['$sce', function($sce){
+                  var vm = this;
+                  // 对于静态的html，是ok
+                  // 对于复杂的html,带有angular表达式，指令的html模板是不可以的
+                  var html = '<p>angularjs study note</p>';
+                  vm.html = $sce.trustAsHtml(html);
+                }])
+
+
+    // 在angular中的所有指令要生效，都需要经过compile，
+    // 在compile中包含了pre-link和post-link，连接上特定行为，才能工作。
+    // 大部分情况下compile，是会在angular启动时，自动compile的。但如果是对于动态添加的模板，则需要手动的compile。
+            .controller('dynamicCtrl', ['$compile', function($compile){
+                var vm = this;
+                vm.html = '<h2>Hello: <a ng-href="{{dynamic.link}}">angular</a></h2>';
+                vm.link = 'http://angular.io/';
+                var i = 0;
+                vm.change = function(){
+                  vm.html = '<h3>change after: <a  ng-href="{{dynamic.link}}">'+(++i)+'</a></h3>';
+                }
+
+            }])
+            // 这里创建了一个叫dy-compile的指令，它首先会监听绑定属性html值的变化，
+            // 当html内容存在的时候，它会尝试首先创个一个子scope，然后利用$compile服务来动态连接传入的html，
+            // 并替换掉当前DOM节点；这里创建子scope的原因，是方便在每次销毁DOM的时，也能容易的销毁掉scope，去掉HTML compile带来的watchers函数，
+            // 并在最后的父scope销毁的时候，也会尝试销毁该scope。
+            .directive('dyCompile', ['$compile', function($compile){
+              return {
+                  replace: true,
+                  restrict: 'EA',
+                  link: function(scope, elm, iAttrs){
+                    var DUMMY_SCOPE = {
+                                $destroy : angular.noop
+                        },
+                        root = elm,
+                        childScope,
+                        destroyChildScope = function() {
+                            (childScope || DUMMY_SCOPE).$destroy();
+                        };
+                    iAttrs.$observe("html", function(html) {
+                       if (html) {
+                         destroyChildScope();
+                         childScope = scope.$new(false);
+                         var content = $compile(html)(childScope);
+                         root.replaceWith(content);
+                         root = content;
+                       }
+                       scope.$on("$destroy", destroyChildScope);
+                     });
+
+                  }//link
+              };//return
+            }])
+    </script>
+  </body>
+</html>

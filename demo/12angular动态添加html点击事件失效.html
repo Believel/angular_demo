@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../bower_components/jquery/dist/jquery.js"></script>
+    <script src="../bower_components/angular/angular.js"></script>
+</head>
+<body ng-app="app">
+<div ng-controller="dynamicCtroller" >
+<div class="dynamic">
+
+</div>
+</div>
+<script>
+    angular.module('app', [])
+        .controller('dynamicCtroller', function ($scope, $compile) {
+            $scope.test = function () {
+                alert(11)
+            }
+
+            var html = '<a href="javascript:void(0);" ng-click="test();">zpp</a>';
+            console.log($compile(html)($scope));
+            $('.dynamic').append($compile(html)($scope));
+
+        })
+
+
+
+
+</script>
+</body>
+</html>

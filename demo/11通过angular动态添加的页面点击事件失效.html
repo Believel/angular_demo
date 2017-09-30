@@ -16,7 +16,6 @@
   </div>
   <script src="jquery.js"></script>
   <script src="bootstrap.min.js"></script>
-  <script src="bootstrap-datepicker.min.js"></script>
   <script src="../node_modules/angular/angular.js"></script>
   <script>
       var app = angular.module('app', []);
@@ -26,7 +25,7 @@
             $scope.val = "1333";
           }
           $scope.jsonArr = [{
-            temp: "<input type='text' class='form-control datepicker' ng-model='val' placeholder='请输入值' style='background:red;'' ng-click='change()'>"
+            temp: "<input type='text' class='form-control' ng-model='val' placeholder='请输入值' style='background:red;'' ng-click='change()'>"
          }];
          $scope.showCoverBox = function(){
             console.log("测试")

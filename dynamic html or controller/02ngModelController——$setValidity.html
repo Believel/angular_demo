@@ -19,6 +19,7 @@
                 <input type="number" ng-model="size" name="size" min="0" max="10" integer/>
                 {{size}}
                 <br/>
+
                 <span ng-show="myForm.size.$error.integer">不是合法的整数!</span>
                 <span ng-show="myForm.size.$error.min || myForm.size.$error.max">数值必须位于0到10之间</span>
             </div>
@@ -28,6 +29,7 @@
                 <input type="text" ng-model="length" name="length" smart-float>
                 {{length}}
                 <br/>
+                  哈哈  {{myForm.size.$error}}
                 <span ng-show="myForm.length.$error.float">不是合法的浮点数！</span>
             </div>
             <!--下面是远程校验-->
@@ -65,6 +67,7 @@
                         return viewValue;
 //                        如果正常就返回viewValue,否则就返回undefined表示不合法
                     }else {
+
                         ctrl.$setValidity('integer', false);
                         return undefined;
                     }
@@ -80,10 +83,12 @@
            link: function (scope, elm, attrs, ctrl) {
                ctrl.$parsers.unshift(function (viewValue) {
                     if(FLOAT_REGXP.test(viewValue)){
+                      alert(1)
                         ctrl.$setValidity('float', true);
 //                        如果满足替换掉逗号返回
                         return parseFloat(viewValue.replace(',', '.'));
                     }else {
+                      alert(2)
                         ctrl.$setValidity('float', false);
                         return undefined;
                     }
@@ -114,6 +119,6 @@
 //   我们可以看到这里使用了ngModelController的$parsers集合(ngModel从DOM中读取的值会被传入到$parsers函数，并依次调用其中的解析器，这是为了对值进行处理和修饰)，同时把验证函数放入到这个集合中，这个验证函数唯一的参数就是指令所有的元素的输入内容!同时我们可以学习到这里使用了$setValidity方法，如下面这种方式：
    app.controller('demo', ['$scope', function($scope){}])
 
-</script>   
+</script>
 </body>
 </html>

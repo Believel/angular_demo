@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        /* The starting CSS styles for the enter animation */
+        .fade.ng-enter {
+            transition:0.5s linear all;
+            opacity:0;
+        }
+
+        /* The finishing CSS styles for the enter animation */
+        .fade.ng-enter.ng-enter-active {
+            opacity:1;
+        }
+    </style>
+</head>
+<body>
+<div ng-controller="animateCtrl as vm">
+    <div ng-if="vm.bool" class="fade">
+        Fade me in out
+    </div>
+    <button ng-click="vm.bool = true">Fade In !</button>
+    <button ng-click="vm.bool = false">Fade out !</button>
+</div>
+<script src="../bower_components/angular/angular.js"></script>
+<script src="../bower_components/angular-animate/angular-animate.js"></script>
+<script>
+    (function (angular) {
+        angular.module('app', ['ngAnimate'])
+            .controller('animateCtrl', animateCtrl)
+        animateCtrl.$inject = [];
+        function animateCtrl() {
+            var vm = this;
+            vm.bool = false;
+        }
+    })(window.angular)
+
+</script>
+</body>
+</html>

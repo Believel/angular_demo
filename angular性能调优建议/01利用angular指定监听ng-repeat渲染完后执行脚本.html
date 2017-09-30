@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html ng-app="app">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <div ng-controller="demoCtrl">
+        <div id="box">
+          <span ng-repeat="item in data" repeat-finish="renderFinish()">{{item.str}}</span>
+        </div>
+    </div>
+    <script src="../bower_components/jquery/dist/jquery.js"></script>
+    <script src="../bower_components/angular/angular.js"></script>
+    <script>
+    // 业务中有时需要异步获取数据并用ng-repeat遍历渲染完页面后执行某个操作，angular本身并没有提供监听ng-repeat渲染完成的指令
+    // 在ng-repeat模板实例内部会暴露出一些特殊属性$index/$first/$middle/$last/$odd/$even
+    // $index会随着每次遍历(从0开始)递增，当遍历到最后一个时，$last的值为true
+      var app = angular.module('app', []);
+      app.controller('demoCtrl', function($scope){
+        $scope.data = [
+          { str:'a'},
+          { str:'b'},
+          { str:'c'},
+          { str:'d'},
+          { str:'e'}
+        ];
+        $scope.renderFinish = function(){
+          console.log('渲染完之后的操作');
+        }
+
+      });
+      // 自定义指令repeatFinish
+      // 为了能更好的复用，可以通过给指令指定一个处理函数renderFinish
+      app.directive('repeatFinish', function(){
+        return {
+          link: function(scope, element, attr){
+            console.log(scope.$index);
+            if(scope.$last == true){
+              console.log('ng-repeat执行完毕');
+              // scope.$eval方法是专门执行angularjs表达式的
+              scope.$eval(attr.repeatFinish);
+            }
+          }
+        };
+      });
+
+    </script>
+  </body>
+</html>
