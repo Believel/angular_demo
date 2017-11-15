@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html ng-app="app">
+  <head>
+    <meta charset="utf-8">
+    <title>下拉列表</title>
+  </head>
+  <body>
+    <!-- ng-controller指令可以创建作用域 -->
+    <div ng-controller="demoCtrl">
+      <select
+
+            ng-change="change(curSelect)"
+            ng-model="curSelect" class="form-control"
+            ng-options="a.name  for a in lists" ></select>
+
+    </div>
+    <script src="../bower_components/angular/angular.js"></script>
+    <script>
+        angular.module('app', [])
+               .controller('demoCtrl', function($scope){
+                   $scope.curSelect = '';
+                   $scope.lists = [
+                     {name:'zpp'},
+                     {name:'tgd'},
+                     {name:'333'},
+                     {name:'122'}
+                   ];
+                   $scope.change = function(curData){
+                     console.log(11);
+                     console.log(curData);
+
+                   }
+
+
+
+
+
+                })
+    </script>
+  </body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html ng-app="app">
+  <head>
+    <meta charset="utf-8">
+    <title>ngstorage</title>
+    <script src="../bower_components/angular/angular.js"></script>
+    <script src="../bower_components/ngstorage/ngStorage.js"></script>
+  </head>
+  <body>
+    <div ng-controller="demoCtrl">
+        <button ng-click="$storage.counter = $storage.counter +1">{{$storage.counter}}</button>
+        <button ng-click="counter = counter +1">{{counter}}</button>
+    </div>
+    <script>
+        angular.module('app', ['ngStorage'])
+               .controller('demoCtrl', function($scope, $localStorage, $sessionStorage){
+
+                //  $scope.$storage = $localStorage.$default({
+                //    counter: 42
+                //  })
+
+
+                $scope.counter = $localStorage.counter || 42;
+                $scope.$watch(function(){
+                  $localStorage.counter = $scope.counter;
+                });
+                $scope.$watch(function(){
+                  return angular.toJson($localStorage);
+                }, function(){
+                  $scope.counter = $localStorage.counter;
+                })
+
+
+                delete $scope.$storage.counter;
+
+
+
+
+
+               })
+    </script>
+  </body>
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html ng-app="app">
+
+<head>
+  <meta charset="utf-8">
+  <title>下拉列表</title>
+  <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.css">
+</head>
+
+<body>
+  <!-- ng-controller指令可以创建作用域 -->
+  <div ng-controller="demoCtrl">
+    <ul>
+      <li ng-repeat="item in data">
+        <h4 ng-bind="item.functionName"></h4>
+        <ul>
+          <button  class="btn"
+                  style="margin-right:5px"
+                  ng-repeat="item2 in item.productAttribute"
+                  ng-click="test(item2, $index, item.productAttribute)"
+                  ng-class="{'btn-primary':item2.bgc}">
+            {{item2.attributeName}}
+          </button>
+
+        </ul>
+      </li>
+    </ul>
+
+    <pre>数据渲染：{{tempObj}}</pre>
+
+  </div>
+  <script src="../bower_components/angular/angular.js"></script>
+  <script>
+    angular.module('app', [])
+      .controller('demoCtrl', function($scope) {
+        $scope.data = [{
+            id: 1,
+            functionName: "结构形式",
+            status: 0,
+            pid: 1,
+            productAttribute: [{
+                id: 1,
+                attributeName: "串联",
+                picture: null,
+                status: 0,
+                fid: 1
+              },
+              {
+                id: 2,
+                attributeName: "并联",
+                picture: null,
+                status: 0,
+                fid: 1
+              }
+            ]
+          },
+          {
+            id: 2,
+            functionName: "出厂方式",
+            status: 0,
+            pid: 1,
+            productAttribute: [{
+                id: 3,
+                attributeName: "整体",
+                picture: null,
+                status: 0,
+                fid: 2
+              },
+              {
+                id: 4,
+                attributeName: "分体",
+                picture: null,
+                status: 0,
+                fid: 2
+              }
+            ]
+          }
+        ];
+        $scope.tempObj = [];
+        $scope.test = function(item, index, parent){
+          var count = 0;
+          var tempObj = {};//存储临时删除的对象
+          if(!$scope.tempObj.length){
+            $scope.tempObj[0] = item;
+            item.bgc = true;
+          }else {
+            for(var i =0; i< $scope.tempObj.length; i++){
+              var cur = $scope.tempObj[i];
+              // 如果是同一级,就替换
+              if(cur.fid == item.fid){
+                for(var j = 0; j< parent.length; j++){
+                  // 找到当前索引，设置为取反
+                  if(j == index){
+                    parent[j].bgc = !parent[j].bgc;
+                    if(parent[j].bgc){
+                      $scope.tempObj[i] = item;
+                    }else {
+                      // 不能在这里就删除，在不同级有可能执行时count数字正好相等
+                      tempObj = item;
+                    }
+                  }else {
+                    // 其他都设置为false
+                      parent[j].bgc  = false;
+                  }
+                }
+              }else {
+                // 不是同级
+                  count++;
+              }
+            }
+            if(count === $scope.tempObj.length){
+              $scope.tempObj.push(item);
+              item.bgc = true;
+              count = 0;
+            }
+            // 删除数组对象中的那一项
+            for(var i = 0; i< $scope.tempObj.length; i++){
+              if($scope.tempObj[i].id == tempObj.id){
+                $scope.tempObj.splice(i, 1);
+              }
+            }
+          }
+
+
+        };
+
+
+
+
+
+      })
+  </script>
+</body>
+
+</html>

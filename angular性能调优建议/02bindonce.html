@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html ng-app="app">
+  <head>
+    <meta charset="utf-8">
+    <title>
+
+  </title>
+
+  </head>
+  <body>
+    <div ng-controller="demoCtrl">
+      <h1>bindonce use</h1>
+      <ul>
+        <li bindonce ng-repeat="data in datas">
+          <span bo-bind="$index+1"></span>&nbsp;&nbsp;
+          <span bo-bind="data.name"></span>&nbsp;&nbsp;
+          <span bo-bind="data.age"></span>&nbsp;&nbsp;
+        </li>
+      </ul>
+
+    </div>
+    <script src="../bower_components/jquery/dist/jquery.js"></script>
+    <script src="../bower_components/angular/angular.js"></script>
+    <script src="../bower_components/angular-bindonce/bindonce.js"></script>
+    <script>
+      var app = angular.module('app', ['pasvaz.bindonce'])
+      app.controller('demoCtrl', function($scope){
+        $scope.datas = [
+          {name:'zpp', age:23},
+          {name:'zpp', age:23},
+          {name:'zpp', age:23},
+          {name:'zpp', age:23},
+          {name:'zpp', age:23},
+          {name:'zpp', age:23},
+          {name:'zpp', age:23},
+          {name:'zpp', age:23},
+          {name:'zpp', age:23},
+          {name:'zpp', age:23},
+          {name:'zpp', age:23},
+          {name:'zpp', age:23}
+        ];
+
+
+      });
+
+    </script>
+  </body>
+</html>

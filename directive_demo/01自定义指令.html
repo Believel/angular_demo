@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html ng-app="app">
+  <head>
+    <meta charset="utf-8">
+    <title>自定义指令1</title>
+    <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.css">
+  </head>
+  <body>
+    <div ng-controller="demoCtrl">
+      <ul class="list-group">
+          <li class="list-group-item" ng-repeat="item in data track by $index"  >
+            {{item.name}}
+            <div ng-if="item.id == 1" my-data="{item}" my-directive>
+
+            </div>
+          </li>
+      </ul>
+    </div>
+    <script src="../bower_components/angular/angular.js"></script>
+    <script type="text/javascript">
+      angular.module('app', [])
+            .controller('demoCtrl', ['$scope', function($scope){
+              $scope.data = [
+                {name:'zpp', id: 1},
+                {name:'qqq', id: 2},
+                {name:'www', id: 3}
+              ];
+            }])
+            .directive('myDirective', function(){
+              return {
+                scope: {
+                  datas: '=myData'
+                },
+                controller: function($scope){
+                  console.log($scope.datas);//{item : {name:'zpp', id:1}}
+                }
+              }
+            })
+    </script>
+  </body>
+</html>

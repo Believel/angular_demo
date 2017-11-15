@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html ng-app="app">
+  <head>
+    <meta charset="utf-8">
+    <title>angular中执行问题</title>
+  </head>
+  <body ng-controller="demoCtrl">
+
+  <script src="../bower_components/angular/angular.js"></script>
+  <script>
+      angular.module('app', [])
+             .run(['$http', function(){
+               console.log('run');
+             }])
+             .config([function(){
+               console.log('config')
+             }])
+             .controller('demoCtrl', ['$scope', function($scope){
+               console.log('demoCtrl')
+             }])
+            //  执行顺序
+            //  config -> run -> controller
+  </script>
+  </body>
+</html>

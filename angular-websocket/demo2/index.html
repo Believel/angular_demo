@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>websocket</title>
+  </head>
+  <body>
+    <input type="text" id="txt">
+    <button id="btn">发送</button>
+    <div id="recive"></div>
+    <script type="text/javascript">
+    // 轮询实例
+    //   window.setInterval(function () {
+    //
+    //      $.get("${pageContext.request.contextPath}/communication/user/ajax.mvc",
+    //          {"timed": new Date().getTime()},
+    //          function (data) {
+    //              $("#logs").append("[data: " + data + " ]<br/>");
+    //      });
+    //  }, 3000);
+    // IE11+
+
+        var ws = new WebSocket('ws://localhost:3000');
+        ws.onopen = function(){
+          console.log('websocket open');
+          document.getElementById("recive").innerHTML = "Connetted";
+        };
+        ws.onclose = function(){
+          console.log('websocket close');
+        };
+        ws.onmessage = function(e){
+          console.log(e.data);
+          document.getElementById('recive').innerHTML = e.data;
+        };
+        document.getElementById('btn').onclick = function(){
+          var txt = document.getElementById('txt').value;
+          ws.send(txt);
+        }
+    </script>
+  </body>
+</html>

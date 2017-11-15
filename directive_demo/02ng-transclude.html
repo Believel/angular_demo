@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html ng-app="app">
+  <head>
+    <meta charset="utf-8">
+    <title>自定义指令1</title>
+    <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.css">
+  </head>
+  <body>
+    <div ng-controller="demoCtrl">
+      <hello>
+          <div>这里是指令内部的内容</div>
+      </hello>
+
+    </div>
+    <script src="../bower_components/angular/angular.js"></script>
+    <script type="text/javascript">
+      angular.module('app', [])
+            .controller('demoCtrl', ['$scope', function($scope){
+
+            }])
+            .directive('hello', function(){
+              return {
+                restrict: 'EA',
+                transclude: true,//是移动一个标识符的原始字节带到一个新模块的位置。
+                                 // 当你开启transclude后，你就可以使用ng-transclude来指明了应该在什么地方放置transcluded内容。
+                template:"<div>Hello everyone!<div ng-transclude>你看不见我</div></div>"
+              }
+            })
+    </script>
+  </body>
+</html>

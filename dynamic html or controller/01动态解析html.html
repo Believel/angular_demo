@@ -15,12 +15,10 @@
     //   // 在angular中默认是不相信添加的HTML内容，对于添加的HTML内容，
     // 首先必须利用$sce.trustAsHtml，告诉angular这是可信的HTML内容。否则你将会得到$sce:unsafe的异常错误
         angular.module('app', [])
-                .controller('demoCtrl', ['$scope', '$compile', function($scope, $compile){
+               .controller('demoCtrl', ['$scope', '$compile', function($scope, $compile){
                   $scope.title = 'haha';
                   var html = '<p>{{title}}<p>';
                   $compile(html)($scope).appendTo('#dd');
-
-
                 }])
 
 

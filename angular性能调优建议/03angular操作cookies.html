@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html ng-app="app">
+  <head>
+    <meta charset="utf-8">
+    <title>angular操作cookies</title>
+
+  </head>
+  <body>
+    <div ng-controller="demoCtrl">
+        {{title}}
+
+    </div>
+    <script src="../bower_components/jquery/dist/jquery.js"></script>
+    <script src="../bower_components/angular/angular.js"></script>
+    <script src="../bower_components/angular-cookies/angular-cookies.js"></script>
+    <script>
+      var app = angular.module('app', ['ngCookies'])
+      app.controller('demoCtrl', function($cookies, $cookieStore, $scope){
+        // $cookies提供浏览器cookies的读/写访问操作。
+        // $cookieStore提供一个被session cookies支持的键值对（字符串-对象）存储。被存入和取出的对象将自动通过angular的toJson/fromJson进行序列化/反序列化。
+        $cookies.name = 'angular';//设置cookies的方法
+        $scope.title = "hello world";
+        $cookieStore.put("skill", "##");
+
+        // 删除cookies
+        $cookieStore.remove("name")
+
+        // 设置过期日期
+        var time = new Date().getTime() + 5000;
+        $cookieStore.put("cookie", "hello cat", {
+          expires: new Date(new Date().getTime() + 5000)
+        });
+        $cookieStore.put("objCookie", {
+               value: "wsscat cat cat",
+               age: "3",
+           }, {
+               expires: new Date(new Date().getTime() + 5000)
+        });
+           console.log($cookies);
+           console.log($cookieStore.get('objCookie'));
+
+    });
+
+    </script>
+  </body>
+</html>

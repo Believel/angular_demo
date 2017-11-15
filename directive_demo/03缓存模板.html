@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html ng-app="app">
+  <head>
+    <meta charset="utf-8">
+    <title>缓存模板</title>
+    <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.css">
+  </head>
+  <body>
+    <div ng-controller="demoCtrl">
+      <!-- 缓存模板第一种方式：使用 $templateCache -->
+      <h4>缓存模板第一种方式：使用 $templateCache</h4>
+      <hello></hello>
+    </div>
+    <script src="../bower_components/angular/angular.js"></script>
+    <script type="text/ng-template" id="templateId.html">
+      <p>This is the content of the template</p>
+    </script>
+    <script type="text/javascript">
+      angular.module('app', [])
+      // 注射器加载完所有模块时，此方法执行一次;缓存
+            .run(function($templateCache){
+              $templateCache.put("hello.html", "<div>Hello world!!!</div>");
+              // $templateCache.put("templateId.html");
+
+            })
+            .controller('demoCtrl', ['$scope', function($scope){
+
+            }])
+            .directive('hello', function($templateCache){
+              return {
+                restrict: 'EA',
+                template: $templateCache.get("hello.html"),
+                replace: true
+              }
+            })
+    </script>
+  </body>
+</html>

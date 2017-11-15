@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="../node_modules/angular/angular.js"></script>
+  <script src="angular-websocket.js"></script>
+</head>
+<body>
+  <section ng-controller="demoCtrl">
+      <ul ng-repeat="data in myData.collection track by $index">
+        <li>{{data}}</li>
+      </ul>
+  </section>
+  <script>
+      angular.module('app', ['ngWebSocket'])
+             .factory('myData', function($websocket){
+               //open a websocket connection
+               var dataStream = $websocket('ws://website.com/data');
+               var collection = [];
+              //  指定收到服务器数据后的回调函数
+               dataStream.onMessage(function(message){
+                 collection.push(JSON.parse(message.data));
+               });
+               var methods = {
+                 collection: collection,
+                 get : function(){
+                  //  用于向服务器发送数据
+                   dataStream.send(JSON.stringify({action:'get'}))
+                 }
+               };
+               return methods;
+
+             })
+             .controller('demoCtrl', function($scope, myData){
+               $scope.myData = myData;
+             })
+  </script>
+</body>
+</html>

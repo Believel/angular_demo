@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html ng-app="app">
+  <head>
+    <meta charset="utf-8">
+    <title>$scope</title>
+  </head>
+  <body>
+    <!-- ng-controller指令可以创建作用域 -->
+    <div ng-controller="demoCtrl">
+        <button type="button" name="button" ng-click="clickHandle()">点击复制</button>
+        <input type="text" name="" value="" ng-model="count">
+    </div>
+    <script src="../bower_components/angular/angular.js"></script>
+    <script>
+
+
+
+
+        angular.module('app', [])
+                .controller('demoCtrl', function($scope){
+                  $scope.id = ''
+                  $scope.clickHandle = function(){
+                    $scope.id = '111';
+                    getData($scope.id)
+                  }
+                  function getData(id){
+                    alert(id);
+                  }
+
+                  $scope.$watch('count', getData());
+
+
+
+                })
+    </script>
+  </body>
+</html>
